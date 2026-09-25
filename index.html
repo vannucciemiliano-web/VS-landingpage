@@ -67,7 +67,11 @@ header{position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);background:rgb
 section{padding-block:clamp(70px,9vw,140px)}
 
 /* HERO split */
-.topvideo{padding:0;line-height:0;background:var(--ink)}
+.topvideo{padding:0;line-height:0;background:var(--ink);margin-top:calc(-1 * var(--hh,117px))}
+.topvideo video{pointer-events:none}
+.topvideo video::-webkit-media-controls,.topvideo video::-webkit-media-controls-panel,.topvideo video::-webkit-media-controls-play-button,.topvideo video::-webkit-media-controls-start-playback-button,.topvideo video::-webkit-media-controls-overlay-play-button{display:none!important;-webkit-appearance:none;opacity:0}
+header{transition:background .35s,border-color .35s,backdrop-filter .35s}
+header.at-top{background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom-color:transparent}
 .topvideo video{width:100%;display:block;background:var(--ink)}
 @media(max-width:760px){.topvideo video{aspect-ratio:9/16;max-height:100svh;object-fit:cover}}
 .hero{display:grid;grid-template-columns:1.02fr .98fr;min-height:clamp(600px,90vh,880px);padding:0;border-block:1px solid rgba(255,255,255,.4)}
@@ -291,7 +295,7 @@ img,video{max-width:100%}
 
 <!-- VIDEO (prima sezione) -->
 <section class="topvideo">
-  <video muted loop playsinline autoplay preload="auto" aria-hidden="true" data-src-d="video/hero-desktop-ec9e0b331e.mp4" data-poster-d="img/poster-desktop-d45ca4e7e5.jpg" data-src-m="video/hero-mobile-1ef6f9aacd.mp4" data-poster-m="img/poster-mobile-2191350ec0.jpg"></video>
+  <video muted loop playsinline webkit-playsinline autoplay preload="auto" aria-hidden="true" tabindex="-1" disablepictureinpicture disableremoteplayback controlslist="nodownload nofullscreen noremoteplayback" data-src-d="video/hero-desktop-ec9e0b331e.mp4" data-poster-d="img/poster-desktop-d45ca4e7e5.jpg" data-src-m="video/hero-mobile-1ef6f9aacd.mp4" data-poster-m="img/poster-mobile-2191350ec0.jpg"></video>
 </section>
 
 <!-- HERO -->
@@ -389,7 +393,7 @@ img,video{max-width:100%}
     </div>
   </div>
   <div class="wrap"><div class="ba-viewport"><div class="ba-track2" id="baTrack"><div class="ba-pair2" data-idx="0"><div class="ba-cell2"><span>Prima</span><img src="img/ba00-prima-6fb76b67c2.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba00-dopo-c3f02a9d49.jpg" alt="Dopo" loading="lazy"></div></div>
-<div class="ba-pair2" data-idx="1"><div class="ba-cell2"><span>Prima</span><img src="img/ba01-prima-9390e25da9.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba01-dopo-88e301bfe2.jpg" alt="Dopo" loading="lazy"></div></div>
+<div class="ba-pair2" data-idx="1"><div class="ba-cell2"><span>Prima</span><img src="img/ba01-prima-9390e25da9.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba01-dopo-8ea10c67ac.jpg" alt="Dopo" loading="lazy"></div></div>
 <div class="ba-pair2" data-idx="2"><div class="ba-cell2"><span>Prima</span><img src="img/ba02-prima-ac87a9c45d.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba02-dopo-c469a2d017.jpg" alt="Dopo" loading="lazy"></div></div>
 <div class="ba-pair2" data-idx="3"><div class="ba-cell2"><span>Prima</span><img src="img/ba03-prima-0f340db344.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba03-dopo-ebc0786233.jpg" alt="Dopo" loading="lazy"></div></div>
 <div class="ba-pair2" data-idx="4"><div class="ba-cell2"><span>Prima</span><img src="img/ba04-prima-9619707226.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba04-dopo-25ffd0a067.jpg" alt="Dopo" loading="lazy"></div></div>
@@ -401,9 +405,9 @@ img,video{max-width:100%}
 <div class="ba-pair2" data-idx="10"><div class="ba-cell2"><span>Prima</span><img src="img/ba10-prima-e4382928b8.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba10-dopo-3da90d4879.jpg" alt="Dopo" loading="lazy"></div></div>
 <div class="ba-pair2" data-idx="11"><div class="ba-cell2"><span>Prima</span><img src="img/ba11-prima-c8d2327249.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba11-dopo-53b49ea128.jpg" alt="Dopo" loading="lazy"></div></div>
 <div class="ba-pair2" data-idx="12"><div class="ba-cell2"><span>Prima</span><img src="img/ba12-prima-619c1991dc.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba12-dopo-345fa5f1cb.jpg" alt="Dopo" loading="lazy"></div></div>
-<div class="ba-pair2" data-idx="13"><div class="ba-cell2"><span>Prima</span><img src="img/ba13-prima-af591cdcd1.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba13-dopo-743ac08688.jpg" alt="Dopo" loading="lazy"></div></div>
+<div class="ba-pair2" data-idx="13"><div class="ba-cell2"><span>Prima</span><img src="img/ba13-prima-af591cdcd1.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba13-dopo-fb5968381f.jpg" alt="Dopo" loading="lazy"></div></div>
 <div class="ba-pair2" data-idx="0"><div class="ba-cell2"><span>Prima</span><img src="img/ba00-prima-6fb76b67c2.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba00-dopo-c3f02a9d49.jpg" alt="Dopo" loading="lazy"></div></div>
-<div class="ba-pair2" data-idx="1"><div class="ba-cell2"><span>Prima</span><img src="img/ba01-prima-9390e25da9.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba01-dopo-88e301bfe2.jpg" alt="Dopo" loading="lazy"></div></div>
+<div class="ba-pair2" data-idx="1"><div class="ba-cell2"><span>Prima</span><img src="img/ba01-prima-9390e25da9.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba01-dopo-8ea10c67ac.jpg" alt="Dopo" loading="lazy"></div></div>
 <div class="ba-pair2" data-idx="2"><div class="ba-cell2"><span>Prima</span><img src="img/ba02-prima-ac87a9c45d.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba02-dopo-c469a2d017.jpg" alt="Dopo" loading="lazy"></div></div>
 <div class="ba-pair2" data-idx="3"><div class="ba-cell2"><span>Prima</span><img src="img/ba03-prima-0f340db344.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba03-dopo-ebc0786233.jpg" alt="Dopo" loading="lazy"></div></div>
 <div class="ba-pair2" data-idx="4"><div class="ba-cell2"><span>Prima</span><img src="img/ba04-prima-9619707226.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba04-dopo-25ffd0a067.jpg" alt="Dopo" loading="lazy"></div></div>
@@ -415,7 +419,7 @@ img,video{max-width:100%}
 <div class="ba-pair2" data-idx="10"><div class="ba-cell2"><span>Prima</span><img src="img/ba10-prima-e4382928b8.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba10-dopo-3da90d4879.jpg" alt="Dopo" loading="lazy"></div></div>
 <div class="ba-pair2" data-idx="11"><div class="ba-cell2"><span>Prima</span><img src="img/ba11-prima-c8d2327249.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba11-dopo-53b49ea128.jpg" alt="Dopo" loading="lazy"></div></div>
 <div class="ba-pair2" data-idx="12"><div class="ba-cell2"><span>Prima</span><img src="img/ba12-prima-619c1991dc.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba12-dopo-345fa5f1cb.jpg" alt="Dopo" loading="lazy"></div></div>
-<div class="ba-pair2" data-idx="13"><div class="ba-cell2"><span>Prima</span><img src="img/ba13-prima-af591cdcd1.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba13-dopo-743ac08688.jpg" alt="Dopo" loading="lazy"></div></div></div></div></div>
+<div class="ba-pair2" data-idx="13"><div class="ba-cell2"><span>Prima</span><img src="img/ba13-prima-af591cdcd1.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba13-dopo-fb5968381f.jpg" alt="Dopo" loading="lazy"></div></div></div></div></div>
 </section>
 
 <!-- CARDS -->
@@ -515,7 +519,7 @@ document.querySelectorAll('video').forEach(v=>{v.muted=true;
   </div>
   <button class="lb-arrow lb-next" id="lbNext" aria-label="Successivo">&#8594;</button>
 </div>
-<script>window.BA=[{"b": "img/ba00-prima-6fb76b67c2.jpg", "a": "img/ba00-dopo-c3f02a9d49.jpg"}, {"b": "img/ba01-prima-9390e25da9.jpg", "a": "img/ba01-dopo-88e301bfe2.jpg"}, {"b": "img/ba02-prima-ac87a9c45d.jpg", "a": "img/ba02-dopo-c469a2d017.jpg"}, {"b": "img/ba03-prima-0f340db344.jpg", "a": "img/ba03-dopo-ebc0786233.jpg"}, {"b": "img/ba04-prima-9619707226.jpg", "a": "img/ba04-dopo-25ffd0a067.jpg"}, {"b": "img/ba05-prima-b228fe0273.jpg", "a": "img/ba05-dopo-273b998b0e.jpg"}, {"b": "img/ba06-prima-4131afd156.jpg", "a": "img/ba06-dopo-c7bf81c833.jpg"}, {"b": "img/ba07-prima-3264d029f7.jpg", "a": "img/ba07-dopo-bdcc57b1f7.jpg"}, {"b": "img/ba08-prima-5a372d6ca2.jpg", "a": "img/ba08-dopo-219baf4f5d.jpg"}, {"b": "img/ba09-prima-812889d27a.jpg", "a": "img/ba09-dopo-77775afb5e.jpg"}, {"b": "img/ba10-prima-e4382928b8.jpg", "a": "img/ba10-dopo-3da90d4879.jpg"}, {"b": "img/ba11-prima-c8d2327249.jpg", "a": "img/ba11-dopo-53b49ea128.jpg"}, {"b": "img/ba12-prima-619c1991dc.jpg", "a": "img/ba12-dopo-345fa5f1cb.jpg"}, {"b": "img/ba13-prima-af591cdcd1.jpg", "a": "img/ba13-dopo-743ac08688.jpg"}];
+<script>window.BA=[{"b": "img/ba00-prima-6fb76b67c2.jpg", "a": "img/ba00-dopo-c3f02a9d49.jpg"}, {"b": "img/ba01-prima-9390e25da9.jpg", "a": "img/ba01-dopo-8ea10c67ac.jpg"}, {"b": "img/ba02-prima-ac87a9c45d.jpg", "a": "img/ba02-dopo-c469a2d017.jpg"}, {"b": "img/ba03-prima-0f340db344.jpg", "a": "img/ba03-dopo-ebc0786233.jpg"}, {"b": "img/ba04-prima-9619707226.jpg", "a": "img/ba04-dopo-25ffd0a067.jpg"}, {"b": "img/ba05-prima-b228fe0273.jpg", "a": "img/ba05-dopo-273b998b0e.jpg"}, {"b": "img/ba06-prima-4131afd156.jpg", "a": "img/ba06-dopo-c7bf81c833.jpg"}, {"b": "img/ba07-prima-3264d029f7.jpg", "a": "img/ba07-dopo-bdcc57b1f7.jpg"}, {"b": "img/ba08-prima-5a372d6ca2.jpg", "a": "img/ba08-dopo-219baf4f5d.jpg"}, {"b": "img/ba09-prima-812889d27a.jpg", "a": "img/ba09-dopo-77775afb5e.jpg"}, {"b": "img/ba10-prima-e4382928b8.jpg", "a": "img/ba10-dopo-3da90d4879.jpg"}, {"b": "img/ba11-prima-c8d2327249.jpg", "a": "img/ba11-dopo-53b49ea128.jpg"}, {"b": "img/ba12-prima-619c1991dc.jpg", "a": "img/ba12-dopo-345fa5f1cb.jpg"}, {"b": "img/ba13-prima-af591cdcd1.jpg", "a": "img/ba13-dopo-fb5968381f.jpg"}];
 (function(){var lb=document.getElementById('lb');if(!lb)return;
  var bI=document.getElementById('lbBefore'),aI=document.getElementById('lbAfter'),cur=0,BA=window.BA||[];
  function show(i){if(!BA.length)return;cur=(i%BA.length+BA.length)%BA.length;bI.src=BA[cur].b;aI.src=BA[cur].a;}
@@ -532,5 +536,6 @@ document.querySelectorAll('video').forEach(v=>{v.muted=true;
 <script>(function(){var v=document.querySelector(".topvideo video");if(!v)return;var mq=window.matchMedia("(max-width:760px)"),cur="";function set(){var k=mq.matches?"m":"d";if(k===cur)return;cur=k;v.poster=v.getAttribute("data-poster-"+k);v.src=v.getAttribute("data-src-"+k);v.load();var p=v.play&&v.play();if(p&&p.catch)p.catch(function(){});}set();if(mq.addEventListener)mq.addEventListener("change",set);else if(mq.addListener)mq.addListener(set);})();</script>
 <script>(function(){var h=document.getElementById("hamb"),m=document.getElementById("mmenu");if(!h)return;h.addEventListener("click",function(){var o=m.classList.toggle("open");h.classList.toggle("open",o);h.setAttribute("aria-expanded",o);});m.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){m.classList.remove("open");h.classList.remove("open");h.setAttribute("aria-expanded","false");});});})();</script>
 <script>(function(){var f=document.querySelector('form[action*="web3forms"]');if(!f)return;var b=f.querySelector("button[type=submit]"),m=f.querySelector(".form-msg"),t=b.textContent;f.addEventListener("submit",function(e){e.preventDefault();if(f.botcheck&&f.botcheck.value)return;b.disabled=true;b.textContent="Invio in corso…";m.className="form-msg";m.textContent="";fetch(f.action,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(Object.fromEntries(new FormData(f)))}).then(function(r){return r.json();}).then(function(d){if(d.success){f.reset();m.className="form-msg ok";m.textContent="Grazie! Abbiamo ricevuto la tua richiesta: ti ricontatteremo al più presto.";}else{throw 0;}}).catch(function(){m.className="form-msg err";m.textContent="Invio non riuscito. Riprova tra poco oppure scrivici a info@vanitystays.it o su WhatsApp.";}).finally(function(){b.disabled=false;b.textContent=t;});});})();</script>
+<script>(function(){var hd=document.querySelector("header"),tv=document.querySelector(".topvideo");if(!hd||!tv)return;function sz(){document.documentElement.style.setProperty("--hh",hd.offsetHeight+"px");}function top(){var lim=tv.offsetHeight-hd.offsetHeight;hd.classList.toggle("at-top",window.scrollY<Math.max(lim,10));}sz();top();window.addEventListener("resize",function(){sz();top();});window.addEventListener("scroll",top,{passive:true});var v=tv.querySelector("video");if(v){v.controls=false;v.addEventListener("loadedmetadata",top);}})();</script>
 </body>
 </html>
