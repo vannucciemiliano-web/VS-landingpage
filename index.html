@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vanity Stays — Trasformiamo il tuo immobile in una destinazione memorabile</title>
+<meta name="description" content="Property management integrato per affitti brevi di fascia medio-alta a Milano e Livorno. Modello Design-to-Rent: dall'analisi del potenziale alla gestione operativa.">
+<meta name="robots" content="index,follow">
+<meta name="author" content="Vanity Stays">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="canonical" href="https://vanitystays.it/">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="img/favicon-512.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Vanity Stays">
+<meta property="og:locale" content="it_IT">
+<meta property="og:url" content="https://vanitystays.it/">
+<meta property="og:title" content="Vanity Stays — Property management integrato">
+<meta property="og:description" content="Modello Design-to-Rent per affitti brevi di fascia medio-alta a Milano e Livorno: dall'analisi del potenziale alla gestione operativa.">
+<meta property="og:image" content="https://vanitystays.it/img/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vanity Stays — Property management integrato">
+<meta name="twitter:description" content="Modello Design-to-Rent per affitti brevi a Milano e Livorno.">
+<meta name="twitter:image" content="https://vanitystays.it/img/og-cover.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Vanity Stays","description":"Property management integrato e modello Design-to-Rent per affitti brevi di fascia medio-alta.","url":"https://vanitystays.it/","logo":"https://vanitystays.it/img/logo-horiz-black.png","email":"info@vanitystays.it","image":"https://vanitystays.it/img/og-cover.jpg","areaServed":[{"@type":"City","name":"Milano"},{"@type":"City","name":"Livorno"}],"knowsAbout":["Property management","Affitti brevi","Interior design","Short-term rental"],"slogan":"Memorable Destinations."}</script>
+<style>
+@font-face{font-family:"Archivo";src:url("fonts/archivo-300-23b972475a.woff2") format("woff2");font-weight:300;font-style:normal;font-display:swap}@font-face{font-family:"Archivo";src:url("fonts/archivo-400-455de4a0e7.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}@font-face{font-family:"Archivo";src:url("fonts/archivo-500-aae031ec37.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap}@font-face{font-family:"Archivo";src:url("fonts/archivo-600-f42b865e3d.woff2") format("woff2");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Schnyder L";src:url("fonts/schnyder-6768124035.woff2") format("woff2"),url("fonts/schnyder-e7065bb57d.woff") format("woff");font-weight:100 900;font-style:normal;font-display:swap}
+:root{
+  --ink:#0A0A0A; --paper:#F4F2EC; --paper-ink:#141414;
+  --white:#FFFFFF; --muted:rgba(255,255,255,.58); --muted-d:rgba(20,20,20,.56);
+  --line:rgba(255,255,255,.15); --line-d:rgba(20,20,20,.13);
+  --serif:"Schnyder L",Georgia,serif; --sans:"Archivo",system-ui,Arial,sans-serif;
+  --pad:clamp(20px,5vw,96px); --maxw:1440px;
+  /* scala tipografica dal Figma */
+  --h1:clamp(2.9rem,5.9vw,5.06rem); --h2:clamp(2.05rem,4.3vw,3.375rem); --h3:clamp(1.55rem,2.6vw,2.25rem);
+  --lead:clamp(1.05rem,1.45vw,1.25rem); --body:.95rem; --eye:.68rem;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:var(--white);font-family:var(--sans);font-weight:300;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--pad)}
+.eyebrow{font-size:var(--eye);font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:0;margin:0}
+h1{font-size:var(--h1);line-height:1.025}
+h2{font-size:var(--h2);line-height:1.0}
+h3{font-size:var(--h3);line-height:1.0}
+p{margin:0}
+.btn{display:inline-flex;align-items:center;gap:.7em;font-family:var(--sans);font-weight:500;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;padding:10px 20px;border-radius:999px;text-decoration:none;border:1px solid rgba(255,255,255,.5);color:#fff;transition:.25s;cursor:pointer;background:transparent}
+.btn:hover{background:#fff;color:#0A0A0A;border-color:#fff}
+.btn.dark{border-color:var(--line-d);color:var(--paper-ink)}.btn.dark:hover{border-color:var(--paper-ink);background:rgba(0,0,0,.05)}
+.btn-wa{background:#111}
+:focus-visible{outline:2px solid #fff;outline-offset:3px}
+
+header{position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);background:rgba(10,10,10,.62);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;max-width:var(--maxw);margin:0 auto;padding:27px var(--pad)}
+.nav .logo{width:167px;height:auto}
+.nav-links{display:flex;gap:34px;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.nav-links a{text-decoration:none;transition:.2s}.nav-links a:hover{color:#fff}
+.nav .btn{padding:10px 20px}
+@media(max-width:880px){.nav-links{display:none}}
+section{padding-block:clamp(70px,9vw,140px)}
+
+/* HERO split */
+.topvideo{padding:0;line-height:0;background:var(--ink)}
+.topvideo video{width:100%;display:block;background:var(--ink)}
+@media(max-width:760px){.topvideo video{aspect-ratio:9/16;max-height:100svh;object-fit:cover}}
+.hero{display:grid;grid-template-columns:1.02fr .98fr;min-height:clamp(600px,90vh,880px);padding:0;border-block:1px solid rgba(255,255,255,.4)}
+.hero-txt{display:flex;flex-direction:column;justify-content:center;padding:clamp(44px,6vw,92px) var(--pad);gap:40px}
+.hero-head{display:flex;flex-direction:column;gap:20px}
+.hero-txt h1{max-width:13ch}
+.hero-sub{color:var(--muted);max-width:44ch;font-size:var(--lead);line-height:1.5}
+.hero-cta{margin-top:8px}
+.hero-micro{font-size:.78rem;color:var(--muted)}
+.hero-media{position:relative;overflow:hidden;background:#000}
+.hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media(max-width:860px){.hero{grid-template-columns:1fr;min-height:0}.hero-media{position:relative;min-height:56vh}.hero-media img{position:absolute}}
+
+/* OBIETTIVO */
+.obj-lead{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,80px);align-items:end;margin-bottom:clamp(46px,6vw,84px)}
+.obj-lead h2{max-width:15ch}.obj-lead p{color:var(--muted);max-width:46ch;font-size:var(--lead);line-height:1.55}
+.numbers{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.num{padding:0 clamp(24px,2.4vw,40px);border-left:1px solid #fff}
+.num .k{font-family:var(--serif);font-size:var(--h2);color:var(--muted);display:block;margin-bottom:20px;line-height:1}
+.num h3{margin-bottom:12px;color:#fff}
+.num p{color:rgba(255,255,255,.4);font-size:.9375rem;line-height:1.5}
+@media(max-width:820px){.numbers{grid-template-columns:1fr;gap:30px}.num{border-left:none;border-top:1px solid #fff;padding:22px 0 0}.num:first-child{border-top:none;padding-top:0}}
+
+/* VIDEO gif (senza contorno, su nero) */
+.videosec{padding-block:clamp(40px,5vw,80px)}
+.videosec video{width:100%;max-width:var(--maxw);margin:0 auto;display:block;background:transparent;border:0}
+
+/* DESIGN-TO-RENT split + cerchi */
+.split{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;border-block:1px solid rgba(255,255,255,.4)}
+.split .media{position:relative;min-height:440px;background:#000}
+.split .media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1)}
+.split .body{padding:clamp(48px,6vw,100px) var(--pad);display:flex;flex-direction:column;justify-content:center;gap:40px}
+.split .eyebrow{display:block}
+.split-head{display:flex;flex-direction:column;gap:20px}
+.split .body>p{color:var(--muted);max-width:46ch;font-size:var(--lead);line-height:1.55}
+@media(max-width:860px){.split{grid-template-columns:1fr}.split .media{min-height:52vh}}
+.flowh-sec .eyebrow{display:block;margin-bottom:clamp(36px,4vw,56px);text-align:center}
+.flowh{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,1.6vw,26px);align-items:start}
+.circle{aspect-ratio:1;border:1px solid var(--line);border-radius:50%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:12%;position:relative}
+.circle b{font-family:var(--serif);font-weight:400;font-size:var(--h3);line-height:1;margin-bottom:12px}
+.circle span{color:var(--muted);font-size:.9375rem;line-height:1.4}
+.circle:not(:last-child)::after{content:"→";position:absolute;right:-15px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:1rem;z-index:3;opacity:0;transition:opacity .5s}
+.flowh.in .circle::after{opacity:1;transition-delay:1.8s}
+.dtr-eq{margin-top:clamp(38px,4vw,58px);text-align:center;font-family:var(--serif);font-size:clamp(1.3rem,2.2vw,1.9rem);line-height:1.3}
+.dtr-eq .mut{color:var(--muted)}
+.flowh .circle{opacity:0;transform:translateY(22px) scale(.96)}
+.flowh.in .circle{opacity:1;transform:none;transition:opacity .8s ease,transform .8s ease}
+.flowh.in .circle:nth-child(1){transition-delay:.1s}.flowh.in .circle:nth-child(2){transition-delay:.5s}
+.flowh.in .circle:nth-child(3){transition-delay:.9s}.flowh.in .circle:nth-child(4){transition-delay:1.3s}
+@media(max-width:820px){.flowh{grid-template-columns:1fr 1fr}.circle:nth-child(2)::after{display:none}}
+@media(max-width:520px){.flowh{grid-template-columns:1fr}.circle{aspect-ratio:auto;border-radius:20px;padding:26px}.circle::after{display:none}}
+
+/* TIMELINE servizi */
+.tl-lead{max-width:34ch;margin-bottom:clamp(26px,3vw,44px)}
+.tl-lead .eyebrow{display:block;margin-bottom:16px}
+.phases{display:grid;grid-template-columns:repeat(7,1fr);gap:clamp(12px,2vw,28px);margin-bottom:clamp(20px,3vw,38px)}
+.phase{border:1px solid var(--line);border-radius:4px;padding:clamp(16px,2vw,26px);font-family:var(--serif);font-size:clamp(1.1rem,1.7vw,1.5rem);display:flex;align-items:center;justify-content:center;text-align:center}
+.phase.p1{grid-column:1/5}.phase.p2{grid-column:5/8}
+.tl{position:relative}
+.tl-line{position:absolute;left:0;right:0;top:calc(clamp(1.5rem,3vw,2.4rem) + 22px);height:1px;background:rgba(255,255,255,.12)}
+.tl-line span{position:absolute;left:0;top:0;height:1px;width:0;background:rgba(255,255,255,.6)}
+.tlwrap.in .tl-line span{width:100%;transition:width 3s ease .2s}
+.tl-steps{display:grid;grid-template-columns:repeat(7,1fr);gap:clamp(8px,1.4vw,20px);position:relative}
+.tl-step{text-align:center;display:flex;flex-direction:column;align-items:center}
+.tl-step .t{font-size:clamp(.95rem,1.3vw,1.1rem);margin-bottom:clamp(14px,2vw,22px);min-height:2.6em}
+.tl-dot{width:44px;height:44px;border:1px solid rgba(255,255,255,.5);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1rem;background:var(--ink);position:relative;z-index:2}
+.tl-step .c{color:var(--muted);font-size:.8rem;line-height:1.45;margin-top:16px}
+.tl-step{opacity:0;transform:translateY(16px)}
+.tlwrap.in .tl-step{opacity:1;transform:none;transition:opacity .7s ease,transform .7s ease}
+.tlwrap.in .tl-step:nth-child(1){transition-delay:.35s}.tlwrap.in .tl-step:nth-child(2){transition-delay:.7s}
+.tlwrap.in .tl-step:nth-child(3){transition-delay:1.05s}.tlwrap.in .tl-step:nth-child(4){transition-delay:1.4s}
+.tlwrap.in .tl-step:nth-child(5){transition-delay:1.75s}.tlwrap.in .tl-step:nth-child(6){transition-delay:2.1s}
+.tlwrap.in .tl-step:nth-child(7){transition-delay:2.45s}
+.phase{opacity:0;transform:translateY(14px)}
+.tlwrap.in .phase{opacity:1;transform:none;transition:opacity .7s ease,transform .7s ease}
+.tlwrap.in .phase.p1{transition-delay:1.15s}.tlwrap.in .phase.p2{transition-delay:2.5s}
+@media(max-width:820px){.phases{grid-template-columns:1fr}.phase.p1,.phase.p2{grid-column:auto}.tl-line{display:none}
+  .tl-steps{grid-template-columns:1fr;gap:0}.tl-step{flex-direction:row;text-align:left;gap:18px;align-items:flex-start;padding:18px 0;border-top:1px solid var(--line)}
+  .tl-step:last-child{border-bottom:1px solid var(--line)}.tl-step .t{margin:0 0 4px;min-height:0}.tl-step .c{margin-top:2px}}
+
+/* GALLERY prima/dopo (nera, autoscroll) */
+.gallery-sec{background:var(--ink);padding-block:clamp(64px,8vw,120px)}
+.ba-head2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,60px);align-items:end;margin-bottom:clamp(34px,4vw,56px)}
+.ba-head2 .eyebrow{display:block;margin-bottom:16px}
+.ba-head2 h2{max-width:15ch}
+.ba-head2 .right{display:flex;flex-direction:column;gap:22px;align-items:flex-end}
+.ba-head2 .right p{color:var(--muted);max-width:34ch;font-size:var(--lead);line-height:1.5;text-align:right}
+.ba-nav,.cards-nav{display:flex;gap:10px}
+.ba-nav button,.cards-nav button{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:transparent;color:#fff;cursor:pointer;font-size:1.05rem;display:flex;align-items:center;justify-content:center;transition:.2s}
+.ba-nav button:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+.ba-viewport{overflow:hidden}
+.ba-track2{display:flex;gap:clamp(16px,2vw,28px);overflow-x:auto;scrollbar-width:none}
+.ba-track2::-webkit-scrollbar{display:none}
+.ba-pair2{flex:0 0 calc(50% - 14px);display:grid;grid-template-columns:1fr 1fr;gap:6px;cursor:pointer}
+.ba-cell2{position:relative;aspect-ratio:3/4;overflow:hidden;background:#111}
+.ba-cell2 img{width:100%;height:100%;object-fit:cover}
+.ba-cell2 span{position:absolute;top:12px;left:12px;font-size:.82rem;letter-spacing:0;text-transform:uppercase;background:#0A0A0A;color:#fff;padding:5px 12px;border-radius:99px;font-weight:500}
+.ba-cell2.aft span{background:#fff;color:#000;border:0}
+@media(max-width:760px){.ba-pair2{flex:0 0 88%}.ba-head2{grid-template-columns:1fr}}
+
+/* RESULTS KPI */
+.results{background:var(--paper);color:var(--paper-ink)}
+.results .eyebrow{color:var(--muted-d)}.results h2{color:var(--paper-ink)}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,2.4vw,42px);margin-top:clamp(28px,3.5vw,48px);border-top:1px solid var(--line-d);border-bottom:1px solid var(--line-d);padding:clamp(30px,3.4vw,48px) 0}
+.kpi .v{font-family:var(--serif);font-size:clamp(2.6rem,5vw,4.4rem);line-height:1;color:var(--paper-ink)}
+.kpi .l{font-size:.82rem;letter-spacing:.05em;color:var(--muted-d);margin-top:14px;max-width:22ch}
+@media(max-width:900px){.kpis{grid-template-columns:1fr 1fr;gap:30px}}@media(max-width:520px){.kpis{grid-template-columns:1fr}}
+
+/* CARDS carosello */
+.results2{background:var(--paper)}
+.cards-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:clamp(30px,3vw,46px)}
+.cards-head-l{display:flex;flex-direction:column;gap:12px}
+.cards-head-l .eyebrow{display:block}
+.cards-head h2{color:var(--paper-ink)}
+.cards-nav button{border-color:var(--line-d);color:var(--paper-ink)}
+.cards-nav button:hover{border-color:var(--paper-ink);background:rgba(0,0,0,.05)}
+.cards-viewport{overflow:hidden}
+.cards-track{display:flex;gap:clamp(16px,2vw,26px);overflow-x:auto;scrollbar-width:none;padding-inline:var(--pad)}
+.cards-track::-webkit-scrollbar{display:none}
+.card{flex:0 0 calc(33.333% - 18px);border:1px solid var(--line-d);overflow:hidden;background:#fff;display:flex;flex-direction:column}
+@media(max-width:1000px){.card{flex:0 0 calc(50% - 13px)}}
+@media(max-width:680px){.card{flex:0 0 84%}}
+.card-img{position:relative;aspect-ratio:4/3;overflow:hidden;cursor:pointer}
+.card-img .photo{width:100%;height:100%;object-fit:cover}
+.card-logo{position:absolute;inset:0;opacity:0;transition:opacity .45s ease}
+.card-logo img{width:100%;height:100%;object-fit:cover}
+.card:hover .card-logo,.card.show-logo .card-logo{opacity:1}
+.card-b{padding:26px}
+.card-b h3{color:var(--paper-ink)}
+.card-loc{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-d);margin:8px 0 20px}
+.card .stat{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--line-d);padding-top:11px;margin-top:11px}
+.card .stat:first-of-type{margin-top:0}
+.card .stat .v{font-family:var(--serif);font-size:1.45rem;color:var(--paper-ink)}
+.card .stat .l{font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted-d)}
+
+/* CONTACT */
+.contact{border-top:1px solid var(--line)}
+.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(34px,5vw,80px)}
+.contact h2{max-width:14ch;margin-bottom:20px}
+.contact-intro{color:var(--muted);max-width:42ch;margin-bottom:30px;font-size:var(--lead);line-height:1.5}
+form{display:grid;grid-template-columns:1fr 1fr;gap:clamp(22px,3vw,34px) clamp(26px,3vw,44px)}
+.f-full{grid-column:1/-1}
+label{display:block;font-size:var(--eye);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+input,select,textarea{width:100%;background:transparent;border:0;border-bottom:1px solid var(--line);color:#fff;font-family:var(--sans);font-size:1rem;padding:.5em 0;border-radius:0}
+input::placeholder,textarea::placeholder{color:rgba(255,255,255,.35)}
+input:focus,select:focus,textarea:focus{outline:none;border-bottom-color:#fff}
+textarea{min-height:70px;resize:vertical}
+select{appearance:none;-webkit-appearance:none;color:var(--muted);background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-opacity='0.6' stroke-width='1.5'><path d='M6 9l6 6 6-6'/></svg>");background-repeat:no-repeat;background-position:right .1em center;padding-right:26px}
+select:valid{color:#fff}select option{background:#111;color:#fff}
+.honey{position:absolute;left:-9999px}
+.consent{display:flex;gap:12px;align-items:flex-start}.consent input{appearance:none;-webkit-appearance:none;flex:0 0 18px;width:18px;height:18px;margin:2px 0 0;border:1px solid var(--muted);background:transparent;cursor:pointer;display:grid;place-content:center}.consent input:checked::after{content:"";width:10px;height:10px;background:#fff}.consent input:focus-visible{outline:1px solid #fff;outline-offset:2px}.consent label{text-transform:none;letter-spacing:0;font-size:.85rem;line-height:1.55;margin:0;cursor:pointer}.consent a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+button[type=submit]{width:100%;justify-content:center;margin-top:6px}
+.form-msg{margin-top:14px;font-size:.9rem;line-height:1.5;min-height:1.5em}.form-msg.ok{color:inherit}.form-msg.err{color:#c0392b}
+@media(max-width:820px){.contact-grid{grid-template-columns:1fr}form{grid-template-columns:1fr}}
+
+/* FOOTER 3 colonne */
+footer{border-top:1px solid var(--line);padding-block:clamp(28px,3.2vw,48px)}
+.foot{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:30px}
+.foot .pay{font-family:var(--serif);font-size:clamp(1.3rem,2vw,1.7rem)}
+.foot .mark{justify-self:center}.foot .mark img{width:100px;height:auto}
+.foot .meta{justify-self:end;text-align:right;color:var(--muted);font-size:.82rem;line-height:2}
+.foot .meta a{text-decoration:none}.meta a[href$="privacy.html"]{text-decoration:underline;text-underline-offset:3px}.foot .meta a:hover{color:#fff}
+@media(max-width:760px){.foot{grid-template-columns:1fr;text-align:center;gap:26px}.foot .mark,.foot .meta{justify-self:center;text-align:center}}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal,.flowh .circle,.tl-step,.phase{opacity:1!important;transform:none!important;transition:none!important}html{scroll-behavior:auto}.tl-line span{width:100%!important;transition:none}}
+
+/* header 2 colonne (metodo + prima/dopo) */
+.tl-head2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,60px);align-items:end;margin-bottom:clamp(52px,7vw,96px)}
+.tl-head-l{display:flex;flex-direction:column;gap:20px}.tl-head-l .eyebrow{display:block}
+.tl-head-r{justify-self:end;text-align:right}
+.tl-head-r p{color:var(--muted);max-width:38ch;margin-left:auto;font-size:var(--lead);line-height:1.5}
+.ba-head-l{display:flex;flex-direction:column;gap:20px}
+@media(max-width:760px){.tl-head2{grid-template-columns:1fr;gap:14px}}
+/* LIGHTBOX prima/dopo */
+.lightbox{position:fixed;inset:0;z-index:100;background:rgba(6,6,6,.94);display:none;align-items:center;justify-content:center;padding:clamp(16px,4vw,48px)}
+.lightbox.open{display:flex}
+.lb-stage{display:flex;gap:10px;max-width:1080px;width:100%;justify-content:center}
+.lb-cell{position:relative;flex:1 1 0;max-width:500px;aspect-ratio:3/4;overflow:hidden;background:#111}
+.lb-cell img{width:100%;height:100%;object-fit:cover;display:block}
+.lb-cell span{position:absolute;top:14px;left:14px;font-family:var(--sans);font-size:.82rem;font-weight:500;text-transform:uppercase;letter-spacing:0;padding:5px 12px;border-radius:99px;background:#0A0A0A;color:#fff}
+.lb-cell.aft span{background:#fff;color:#000}
+.lb-arrow,.lb-close{position:absolute;background:rgba(20,20,20,.55);border:1px solid rgba(255,255,255,.5);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s;z-index:2}
+.lb-arrow:hover,.lb-close:hover{background:#fff;color:#000}
+.lb-arrow{width:54px;height:54px;font-size:1.4rem;top:50%;transform:translateY(-50%);border-radius:50%}
+.lb-prev{left:clamp(8px,2vw,24px)}.lb-next{right:clamp(8px,2vw,24px)}
+.lb-close{top:clamp(12px,2vw,24px);right:clamp(12px,2vw,24px);width:48px;height:48px;font-size:1.5rem;border-radius:50%}
+@media(max-width:600px){.lb-arrow{width:44px;height:44px}}
+section[id]{scroll-margin-top:var(--navh,130px)}
+.results2{padding-block:clamp(40px,5vw,72px)}
+
+.hamb{display:none;width:42px;height:42px;background:none;border:0;cursor:pointer;flex-direction:column;justify-content:center;align-items:center;gap:7px;padding:0}
+.hamb span{width:26px;height:1.5px;background:#fff;display:block;transition:.25s}
+.hamb.open span:nth-child(1){transform:translateY(4.25px) rotate(45deg)}
+.hamb.open span:nth-child(2){transform:translateY(-4.25px) rotate(-45deg)}
+.mobile-menu{display:none;flex-direction:column;padding:4px var(--pad) 22px;border-top:1px solid rgba(255,255,255,.14)}
+.mobile-menu a{padding:15px 2px;color:#fff;text-decoration:none;text-transform:uppercase;font-size:.82rem;letter-spacing:.1em;border-bottom:1px solid rgba(255,255,255,.1)}
+.mobile-menu a.btn{margin-top:18px;text-align:center;border-radius:999px;border:1px solid rgba(255,255,255,.5);justify-content:center}
+@media(max-width:880px){.nav-cta{display:none}.hamb{display:flex}.mobile-menu.open{display:flex}}
+@media(max-width:600px){section{padding-block:clamp(46px,12vw,66px)}.hero-txt{padding-top:36px;padding-bottom:42px}.ba-pair2{flex:0 0 90%}.card{flex:0 0 86%}}
+img,video{max-width:100%}
+@media(max-width:760px){.tl-head-r{justify-self:start;text-align:left}.tl-head-r p{margin-left:0}.ba-head2 .right{align-items:flex-start}.ba-head2 .right p{text-align:left}}
+@media(max-width:480px){.nav .logo{width:140px}.nav{padding:20px var(--pad)}.hero-txt{padding-top:32px;padding-bottom:38px}.foot-payoff,.dtr-eq{font-size:1.5rem}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <img class="logo" src="img/logo-0f92e79d9f.png" alt="Vanity Stays">
+    <nav class="nav-links"><a href="#modello">Modello</a><a href="#metodo-operativo">Metodo</a><a href="#risultati">Risultati</a><a href="#strutture">Strutture</a><a href="#contatto">Contatti</a></nav>
+    <a href="#contatto" class="btn nav-cta">Richiedi valutazione</a>
+    <button class="hamb" id="hamb" aria-label="Apri menu" aria-expanded="false"><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mmenu">
+    <a href="#modello">Modello</a><a href="#metodo-operativo">Metodo</a><a href="#risultati">Risultati</a><a href="#strutture">Strutture</a><a href="#contatto">Contatti</a>
+    <a href="#contatto" class="btn">Richiedi valutazione</a>
+  </div>
+</header>
+
+<!-- VIDEO (prima sezione) -->
+<section class="topvideo">
+  <video muted loop playsinline autoplay preload="auto" aria-hidden="true" data-src-d="video/hero-desktop-ec9e0b331e.mp4" data-poster-d="img/poster-desktop-d45ca4e7e5.jpg" data-src-m="video/hero-mobile-1ef6f9aacd.mp4" data-poster-m="img/poster-mobile-2191350ec0.jpg"></video>
+</section>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-txt">
+    <div class="hero-head reveal"><span class="eyebrow">Property management integrato</span><h1>Trasformiamo il tuo immobile in una destinazione memorabile.</h1></div>
+    <p class="hero-sub reveal">Oltre il property management. Valorizziamo il tuo immobile per aumentarne il rendimento e il valore percepito attraverso branding, architettura e interior design.</p>
+    <div class="hero-cta reveal"><a href="#contatto" class="btn">Richiedi una valutazione gratuita</a></div>
+  </div>
+  <div class="hero-media"><img src="img/loft-ec9241a773.jpg" alt="Interno di un loft gestito da Vanity Stays"></div>
+</section>
+
+<!-- OBIETTIVO -->
+<section class="wrap">
+  <div class="obj-lead">
+    <h2 class="reveal">Massimizza il rendimento, senza occuparti della gestione.</h2>
+    <p class="reveal">Seguiamo l'intero percorso: analisi, strategia, valorizzazione, lancio sulle piattaforme e gestione quotidiana. Un unico referente, un processo chiaro, un asset che rende di più nel tempo.</p>
+  </div>
+  <div class="numbers">
+    <div class="num reveal"><span class="k">01</span><h3>Più attrattività</h3><p>Design e branding alzano qualità percepita, prezzo medio e conversione delle prenotazioni.</p></div>
+    <div class="num reveal"><span class="k">02</span><h3>Gestione senza stress</h3><p>Check-in, pulizie, ospiti, pricing e tutta la burocrazia: ce ne occupiamo noi, dall'inizio alla fine.</p></div>
+    <div class="num reveal"><span class="k">03</span><h3>Ricavi ottimizzati</h3><p>Revenue management continuo e report periodici per far crescere il rendimento mese dopo mese.</p></div>
+  </div>
+</section>
+
+<!-- DESIGN-TO-RENT -->
+<section class="split" id="modello" style="padding:0">
+  <div class="media"><img src="img/0789ef7aac.jpg" alt="Interior design curato di un asset Vanity Stays"></div>
+  <div class="body">
+    <div class="split-head"><span class="eyebrow">Il modello Design-to-Rent</span><h2>Progettiamo asset ricettivi performanti.</h2></div>
+    <p>Un immobile short-rent performante non dipende solo dalla posizione. Servono identità, qualità percepita ed esperienza ospite. Progettiamo l'immobile come prodotto ricettivo di alto livello.</p>
+    <div><a href="#strutture" class="btn">Guarda le strutture</a></div>
+  </div>
+</section>
+
+<!-- cerchi -->
+<section class="wrap flowh-sec">
+  <div class="flowh">
+    <div class="circle"><b>Design</b><span>Progetto, identità e posizionamento</span></div>
+    <div class="circle"><b>Beauty</b><span>Estetica curata e maggiore valore percepito</span></div>
+    <div class="circle"><b>Memorability</b><span>Esperienza ospite più riconoscibile</span></div>
+    <div class="circle"><b>Reputation</b><span>Recensioni, conversione e posizionamento nel tempo</span></div>
+  </div>
+  <p class="dtr-eq reveal">Il risultato: <span class="mut">più conversione, prenotazioni di qualità e ricavi ottimizzati.</span></p>
+</section>
+
+<!-- SERVIZI timeline -->
+<section class="wrap" id="metodo-operativo" style="padding-block:clamp(52px,6.5vw,100px)">
+  <div class="tl-head2 reveal">
+    <div class="tl-head-l"><span class="eyebrow">Il metodo operativo</span><h2>Dalla strategia alla gestione:<br>curiamo tutto il ciclo.</h2></div>
+    <div class="tl-head-r"><p>Un percorso lineare in sette fasi, dall'analisi iniziale all'ottimizzazione continua dei ricavi.</p></div>
+  </div>
+  <div class="tlwrap">
+  <div class="phases">
+    <div class="phase p1">Setup &amp; Valorizzazione</div>
+    <div class="phase p2">Lancio, Gestione &amp; Ottimizzazione</div>
+  </div>
+  <div class="tl">
+    <div class="tl-line"><span></span></div>
+    <div class="tl-steps">
+      <div class="tl-step"><div class="t">Analisi</div><div class="tl-dot">1</div><div class="c">Fattibilità e valutazione potenziale</div></div>
+      <div class="tl-step"><div class="t">Strategia</div><div class="tl-dot">2</div><div class="c">Business plan</div></div>
+      <div class="tl-step"><div class="t">Valorizzazione</div><div class="tl-dot">3</div><div class="c">Interior design e branding</div></div>
+      <div class="tl-step"><div class="t">Shooting</div><div class="tl-dot">4</div><div class="c">Foto professionali per annuncio</div></div>
+      <div class="tl-step"><div class="t">Lancio</div><div class="tl-dot">5</div><div class="c">Listing, setup OTA e go-live</div></div>
+      <div class="tl-step"><div class="t">Gestione</div><div class="tl-dot">6</div><div class="c">Operatività continua</div></div>
+      <div class="tl-step"><div class="t">Ottimizzazione</div><div class="tl-dot">7</div><div class="c">Performance e report</div></div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- RESULTS KPI -->
+<section class="results" id="risultati">
+  <div class="wrap">
+    <h2 class="reveal">Risultati reali del nostro metodo.</h2>
+    <div class="kpis" id="kpis">
+      <div class="kpi"><div class="v" data-to="3900" data-sep="1">0</div><div class="l">persone ospitate</div></div>
+      <div class="kpi"><div class="v" data-to="4.9" data-dec="1" data-suffix=" / 5">0</div><div class="l">media rating delle nostre strutture</div></div>
+      <div class="kpi"><div class="v" data-to="315" data-suffix="/365">0</div><div class="l">media giorni occupati per anno</div></div>
+      <div class="kpi"><div class="v" data-to="375" data-prefix="&#8364;" data-suffix="k">0</div><div class="l">incassi generati per i proprietari</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY prima/dopo -->
+<section class="gallery-sec">
+  <div class="wrap ba-head2">
+    <div class="ba-head-l">
+      <span class="eyebrow reveal">Prima/dopo</span>
+      <h2 class="reveal">Il design che cambia il rendimento.</h2>
+    </div>
+    <div class="right">
+      <p class="reveal">Interventi mirati, arredo curato ed in brand, valorizzazione degli spazi.</p>
+    </div>
+  </div>
+  <div class="wrap"><div class="ba-viewport"><div class="ba-track2" id="baTrack"><div class="ba-pair2" data-idx="0"><div class="ba-cell2"><span>Prima</span><img src="img/ba00-prima-111d971ed1.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba00-dopo-a767f958eb.jpg" alt="Dopo" loading="lazy"></div></div>
+<div class="ba-pair2" data-idx="1"><div class="ba-cell2"><span>Prima</span><img src="img/ba01-prima-393cf61f45.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba01-dopo-ca84224e68.jpg" alt="Dopo" loading="lazy"></div></div>
+<div class="ba-pair2" data-idx="2"><div class="ba-cell2"><span>Prima</span><img src="img/ba02-prima-658ac1bb76.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba02-dopo-c469a2d017.jpg" alt="Dopo" loading="lazy"></div></div>
+<div class="ba-pair2" data-idx="3"><div class="ba-cell2"><span>Prima</span><img src="img/ba03-prima-dfb586403e.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba03-dopo-0bf8a02319.jpg" alt="Dopo" loading="lazy"></div></div>
+<div class="ba-pair2" data-idx="4"><div class="ba-cell2"><span>Prima</span><img src="img/ba04-prima-f1cd8cbd7b.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba04-dopo-2339ae7c37.jpg" alt="Dopo" loading="lazy"></div></div>
+<div class="ba-pair2" data-idx="5"><div class="ba-cell2"><span>Prima</span><img src="img/ba05-prima-b228fe0273.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba05-dopo-6a8b700063.jpg" alt="Dopo" loading="lazy"></div></div>
+<div class="ba-pair2" data-idx="6"><div class="ba-cell2"><span>Prima</span><img src="img/ba06-prima-1b0d041f5e.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba06-dopo-c7bf81c833.jpg" alt="Dopo" loading="lazy"></div></div>
+<div class="ba-pair2" data-idx="7"><div class="ba-cell2"><span>Prima</span><img src="img/ba07-prima-71b90dd863.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba07-dopo-5fee4384e9.jpg" alt="Dopo" loading="lazy"></div></div>
+<div class="ba-pair2" data-idx="8"><div class="ba-cell2"><span>Prima</span><img src="img/ba08-prima-5a372d6ca2.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba08-dopo-384d990153.jpg" alt="Dopo" loading="lazy"></div></div>
+<div class="ba-pair2" data-idx="9"><div class="ba-cell2"><span>Prima</span><img src="img/ba09-prima-18ad109a73.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba09-dopo-3b33e4ce66.jpg" alt="Dopo" loading="lazy"></div></div>
+<div class="ba-pair2" data-idx="10"><div class="ba-cell2"><span>Prima</span><img src="img/ba10-prima-b7071fe796.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba10-dopo-abfc3298d1.jpg" alt="Dopo" loading="lazy"></div></div>
+<div class="ba-pair2" data-idx="11"><div class="ba-cell2"><span>Prima</span><img src="img/ba11-prima-c8d2327249.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba11-dopo-da6952fbb5.jpg" alt="Dopo" loading="lazy"></div></div>
+<div class="ba-pair2" data-idx="12"><div class="ba-cell2"><span>Prima</span><img src="img/ba12-prima-8647e10180.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba12-dopo-36a892396f.jpg" alt="Dopo" loading="lazy"></div></div>
+<div class="ba-pair2" data-idx="13"><div class="ba-cell2"><span>Prima</span><img src="img/ba13-prima-af591cdcd1.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba13-dopo-09944e65b3.jpg" alt="Dopo" loading="lazy"></div></div>
+<div class="ba-pair2" data-idx="0"><div class="ba-cell2"><span>Prima</span><img src="img/ba00-prima-111d971ed1.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba00-dopo-a767f958eb.jpg" alt="Dopo" loading="lazy"></div></div>
+<div class="ba-pair2" data-idx="1"><div class="ba-cell2"><span>Prima</span><img src="img/ba01-prima-393cf61f45.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba01-dopo-ca84224e68.jpg" alt="Dopo" loading="lazy"></div></div>
+<div class="ba-pair2" data-idx="2"><div class="ba-cell2"><span>Prima</span><img src="img/ba02-prima-658ac1bb76.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba02-dopo-c469a2d017.jpg" alt="Dopo" loading="lazy"></div></div>
+<div class="ba-pair2" data-idx="3"><div class="ba-cell2"><span>Prima</span><img src="img/ba03-prima-dfb586403e.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba03-dopo-0bf8a02319.jpg" alt="Dopo" loading="lazy"></div></div>
+<div class="ba-pair2" data-idx="4"><div class="ba-cell2"><span>Prima</span><img src="img/ba04-prima-f1cd8cbd7b.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba04-dopo-2339ae7c37.jpg" alt="Dopo" loading="lazy"></div></div>
+<div class="ba-pair2" data-idx="5"><div class="ba-cell2"><span>Prima</span><img src="img/ba05-prima-b228fe0273.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba05-dopo-6a8b700063.jpg" alt="Dopo" loading="lazy"></div></div>
+<div class="ba-pair2" data-idx="6"><div class="ba-cell2"><span>Prima</span><img src="img/ba06-prima-1b0d041f5e.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba06-dopo-c7bf81c833.jpg" alt="Dopo" loading="lazy"></div></div>
+<div class="ba-pair2" data-idx="7"><div class="ba-cell2"><span>Prima</span><img src="img/ba07-prima-71b90dd863.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba07-dopo-5fee4384e9.jpg" alt="Dopo" loading="lazy"></div></div>
+<div class="ba-pair2" data-idx="8"><div class="ba-cell2"><span>Prima</span><img src="img/ba08-prima-5a372d6ca2.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba08-dopo-384d990153.jpg" alt="Dopo" loading="lazy"></div></div>
+<div class="ba-pair2" data-idx="9"><div class="ba-cell2"><span>Prima</span><img src="img/ba09-prima-18ad109a73.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba09-dopo-3b33e4ce66.jpg" alt="Dopo" loading="lazy"></div></div>
+<div class="ba-pair2" data-idx="10"><div class="ba-cell2"><span>Prima</span><img src="img/ba10-prima-b7071fe796.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba10-dopo-abfc3298d1.jpg" alt="Dopo" loading="lazy"></div></div>
+<div class="ba-pair2" data-idx="11"><div class="ba-cell2"><span>Prima</span><img src="img/ba11-prima-c8d2327249.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba11-dopo-da6952fbb5.jpg" alt="Dopo" loading="lazy"></div></div>
+<div class="ba-pair2" data-idx="12"><div class="ba-cell2"><span>Prima</span><img src="img/ba12-prima-8647e10180.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba12-dopo-36a892396f.jpg" alt="Dopo" loading="lazy"></div></div>
+<div class="ba-pair2" data-idx="13"><div class="ba-cell2"><span>Prima</span><img src="img/ba13-prima-af591cdcd1.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba13-dopo-09944e65b3.jpg" alt="Dopo" loading="lazy"></div></div></div></div></div>
+</section>
+
+<!-- CARDS -->
+<section class="results results2" id="strutture">
+  <div class="wrap cards-head">
+    <div class="cards-head-l"><span class="eyebrow reveal">Il portfolio</span><h2 class="reveal">Le nostre strutture.</h2></div>
+    <div class="cards-nav"><button id="cardsPrev" aria-label="Precedente">&#8592;</button><button id="cardsNext" aria-label="Successivo">&#8594;</button></div>
+  </div>
+  <div class="cards-viewport"><div class="cards-track" id="cardsTrack"><div class="card"><div class="card-img"><img class="photo" src="img/3f712512e8.jpg" alt="The Architect Loft"><div class="card-logo"><img src="img/10f197f8a7.jpg" alt="The Architect Loft"></div></div><div class="card-b"><h3>The Architect Loft</h3><div class="card-loc">Milano</div><div class="stat"><span class="l">Incasso annuo (avg.)</span><span class="v">€40–45k</span></div><div class="stat"><span class="l">Occupancy</span><span class="v">75–80%</span></div><div class="stat"><span class="l">ADR</span><span class="v">€200</span></div></div></div>
+<div class="card"><div class="card-img"><img class="photo" src="img/f28ef19342.jpg" alt="Casa Arte"><div class="card-logo"><img src="img/86ab3d699c.jpg" alt="Casa Arte"></div></div><div class="card-b"><h3>Casa Arte</h3><div class="card-loc">Livorno</div><div class="stat"><span class="l">Incasso annuo (avg.)</span><span class="v">€20–25k</span></div><div class="stat"><span class="l">Occupancy</span><span class="v">80–85%</span></div><div class="stat"><span class="l">ADR</span><span class="v">€120</span></div></div></div>
+<div class="card"><div class="card-img"><img class="photo" src="img/c8ede5795c.jpg" alt="The Architect Suite"><div class="card-logo"><img src="img/e81325ce56.jpg" alt="The Architect Suite"></div></div><div class="card-b"><h3>The Architect Suite</h3><div class="card-loc">Livorno</div><div class="stat"><span class="l">Incasso annuo (avg.)</span><span class="v">€25–30k</span></div><div class="stat"><span class="l">Occupancy</span><span class="v">90–95%</span></div><div class="stat"><span class="l">ADR</span><span class="v">€140</span></div></div></div>
+<div class="card"><div class="card-img"><img class="photo" src="img/c6c4cd30b5.jpg" alt="Bassa Marea"><div class="card-logo"><img src="img/9b620440e3.jpg" alt="Bassa Marea"></div></div><div class="card-b"><h3>Bassa Marea</h3><div class="card-loc">Livorno</div><div class="stat"><span class="l">Incasso annuo (avg.)</span><span class="v">€18–23k</span></div><div class="stat"><span class="l">Occupancy</span><span class="v">80–85%</span></div><div class="stat"><span class="l">ADR</span><span class="v">€135</span></div></div></div>
+<div class="card"><div class="card-img"><img class="photo" src="img/8c62d1efb0.jpg" alt="Casa Atelier"><div class="card-logo"><img src="img/84fdd0289d.jpg" alt="Casa Atelier"></div></div><div class="card-b"><h3>Casa Atelier</h3><div class="card-loc">Livorno</div><div class="stat"><span class="l">Incasso annuo (avg.)</span><span class="v">€22–27k</span></div><div class="stat"><span class="l">Occupancy</span><span class="v">85–90%</span></div><div class="stat"><span class="l">ADR</span><span class="v">€130</span></div></div></div></div></div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contatto">
+  <div class="wrap contact-grid">
+    <div>
+      <span class="eyebrow reveal">Contatti</span>
+      <h2 class="reveal" style="margin-top:16px">Vuoi capire quanto può rendere il tuo immobile?</h2>
+      <p class="contact-intro reveal">Raccontaci dove si trova e in che stato è: ti ricontatteremo per una prima valutazione e per capire se può essere valorizzato con il modello Vanity Stays.</p>
+      <a class="btn btn-wa reveal" target="_blank" rel="noopener" href="https://wa.me/393338882977?text=Ciao%20Vanity%20Stays%2C%20vorrei%20una%20valutazione%20per%20il%20mio%20immobile.">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.2 1.1-1.7 1.2-.5.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.4-3.9-4.6-4.1-.1-.2-1.1-1.4-1.1-2.7 0-1.3.7-1.9.9-2.2.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5.2.5.7 1.8.8 1.9.1.1.1.3 0 .5-.1.2-.2.4-.3.5l-.4.5c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.2.7-.1.3.1 1.8.8 2 1 .3.1.5.2.5.3.1.2.1.6-.1 1.2Z"/></svg>
+        Scrivici su WhatsApp
+      </a>
+    </div>
+    <form action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="c282adf4-3f79-4a89-bf94-18f28e9ba6b0">
+      <input type="hidden" name="subject" value="Nuova richiesta valutazione — vanitystays.it">
+      <input type="hidden" name="from_name" value="Landing Vanity Stays">
+      <input type="text" name="botcheck" class="honey" tabindex="-1" autocomplete="off">
+      <div class="field"><label>Nome e cognome</label><input name="nome" required></div>
+      <div class="field"><label>Email</label><input type="email" name="email" required></div>
+      <div class="field"><label>Telefono</label><input type="tel" name="telefono"></div>
+      <div class="field"><label>Città dell'immobile</label><input name="citta"></div>
+      <div class="field"><label>Tipologia immobile</label><select name="tipologia" required><option value="" disabled selected>Seleziona</option><option>Monolocale</option><option>Bilocale</option><option>Trilocale+</option><option>Loft</option><option>Altro</option></select></div>
+      <div class="field"><label>Stato attuale</label><select name="stato" required><option value="" disabled selected>Seleziona</option><option>Pronto all'uso</option><option>Da rinfrescare</option><option>Da ristrutturare</option></select></div>
+      <div class="field f-full"><label>Messaggio</label><textarea name="messaggio" placeholder="Raccontaci qualcosa in più sull'immobile…"></textarea></div>
+      <div class="f-full consent"><input type="checkbox" id="privacy" name="privacy" value="Presa visione informativa" required><label for="privacy">Ho letto l’<a href="privacy.html" target="_blank" rel="noopener">informativa privacy</a> e acconsento al trattamento dei miei dati per ricevere la valutazione richiesta.</label></div>
+      <div class="f-full"><button type="submit" class="btn">Richiedi la valutazione</button><p class="form-msg" role="status" aria-live="polite"></p></div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div class="pay">Memorable Destinations.</div>
+    <div class="mark"><img src="img/mark-e00a2463e3.png" alt="Vanity Stays"></div>
+    <div class="meta"><a href="mailto:info@vanitystays.it">info@vanitystays.it</a><br>Milano | Livorno<br>© 2026 Vanity Stays<br><a href="privacy.html">Privacy policy</a></div>
+  </div>
+</footer>
+
+<script>
+const ioOnce=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ioOnce.unobserve(e.target);}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>ioOnce.observe(el));
+
+function runKpis(){document.querySelectorAll('#kpis .v').forEach(el=>{
+  const to=+el.dataset.to,dur=1900,t0=performance.now();
+  const fmt=(n)=>{const dec=+el.dataset.dec||0;let s=n.toFixed(dec);let a=s.split('.');a[0]=a[0].replace(/\B(?=(\d{3})+(?!\d))/g,'.');s=a[1]?a[0]+'.'+a[1]:a[0];return (el.dataset.prefix||'')+s+(el.dataset.suffix||'');};
+  const step=t=>{let p=Math.min(1,(t-t0)/dur);p=1-Math.pow(1-p,3);el.textContent=fmt(to*p);if(p<1)requestAnimationFrame(step);else el.textContent=fmt(to);};
+  requestAnimationFrame(step);});}
+const ioLoop=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');if(e.target.id==='kpis')runKpis();}else{e.target.classList.remove('in');}})},{threshold:.2});
+document.querySelectorAll('.flowh, .tlwrap, #kpis').forEach(el=>ioLoop.observe(el));
+
+// gallery autoscroll dx->sx + pausa + frecce
+(function(){const tr=document.getElementById('baTrack');if(!tr)return;let paused=false,uT;
+  const pause=()=>{paused=true;clearTimeout(uT);uT=setTimeout(()=>paused=false,2600);};
+  ['wheel','pointerdown','touchstart'].forEach(ev=>tr.addEventListener(ev,pause,{passive:true}));
+  const step=()=>{const c=tr.querySelector('.ba-pair2');const g=parseInt(getComputedStyle(tr).columnGap)||20;return c?c.offsetWidth+g:400;};
+  const bp=document.getElementById('baPrev'),bn=document.getElementById('baNext');
+  if(bp)bp.onclick=()=>{pause();tr.scrollBy({left:-step(),behavior:'smooth'});};
+  if(bn)bn.onclick=()=>{pause();tr.scrollBy({left:step(),behavior:'smooth'});};
+  const half=()=>tr.scrollWidth/2;
+  function tick(){if(!paused){tr.scrollLeft+=0.55;if(tr.scrollLeft>=half())tr.scrollLeft-=half();}requestAnimationFrame(tick);}
+  requestAnimationFrame(tick);})();
+
+// carosello cards con loop + tap->logo
+(function(){const tr=document.getElementById('cardsTrack');if(!tr)return;
+  const step=()=>{const c=tr.querySelector('.card');const g=parseInt(getComputedStyle(tr).columnGap)||20;return c?c.offsetWidth+g:320;};
+  const nx=document.getElementById('cardsNext'),pv=document.getElementById('cardsPrev');
+  if(nx)nx.onclick=()=>{if(tr.scrollLeft>=tr.scrollWidth-tr.clientWidth-4)tr.scrollTo({left:0,behavior:'smooth'});else tr.scrollBy({left:step(),behavior:'smooth'});};
+  if(pv)pv.onclick=()=>{if(tr.scrollLeft<=4)tr.scrollTo({left:tr.scrollWidth,behavior:'smooth'});else tr.scrollBy({left:-step(),behavior:'smooth'});};
+  tr.querySelectorAll('.card').forEach(c=>{if(c.querySelector('.card-logo'))c.querySelector('.card-img').addEventListener('click',()=>c.classList.toggle('show-logo'));});})();
+
+// video: muto, x1.2, autoplay con fallback
+document.querySelectorAll('video').forEach(v=>{v.muted=true;
+  const setR=()=>{try{v.playbackRate=1.2;}catch(e){}};v.addEventListener('loadedmetadata',setR);setR();
+  const p=v.play&&v.play();if(p&&p.catch)p.catch(()=>v.setAttribute('controls',''));});
+</script>
+<div class="lightbox" id="lb" aria-hidden="true">
+  <button class="lb-close" id="lbClose" aria-label="Chiudi">&times;</button>
+  <button class="lb-arrow lb-prev" id="lbPrev" aria-label="Precedente">&#8592;</button>
+  <div class="lb-stage">
+    <div class="lb-cell"><span>Prima</span><img id="lbBefore" alt="Prima"></div>
+    <div class="lb-cell aft"><span>Dopo</span><img id="lbAfter" alt="Dopo"></div>
+  </div>
+  <button class="lb-arrow lb-next" id="lbNext" aria-label="Successivo">&#8594;</button>
+</div>
+<script>window.BA=[{"b": "img/ba00-prima-111d971ed1.jpg", "a": "img/ba00-dopo-a767f958eb.jpg"}, {"b": "img/ba01-prima-393cf61f45.jpg", "a": "img/ba01-dopo-ca84224e68.jpg"}, {"b": "img/ba02-prima-658ac1bb76.jpg", "a": "img/ba02-dopo-c469a2d017.jpg"}, {"b": "img/ba03-prima-dfb586403e.jpg", "a": "img/ba03-dopo-0bf8a02319.jpg"}, {"b": "img/ba04-prima-f1cd8cbd7b.jpg", "a": "img/ba04-dopo-2339ae7c37.jpg"}, {"b": "img/ba05-prima-b228fe0273.jpg", "a": "img/ba05-dopo-6a8b700063.jpg"}, {"b": "img/ba06-prima-1b0d041f5e.jpg", "a": "img/ba06-dopo-c7bf81c833.jpg"}, {"b": "img/ba07-prima-71b90dd863.jpg", "a": "img/ba07-dopo-5fee4384e9.jpg"}, {"b": "img/ba08-prima-5a372d6ca2.jpg", "a": "img/ba08-dopo-384d990153.jpg"}, {"b": "img/ba09-prima-18ad109a73.jpg", "a": "img/ba09-dopo-3b33e4ce66.jpg"}, {"b": "img/ba10-prima-b7071fe796.jpg", "a": "img/ba10-dopo-abfc3298d1.jpg"}, {"b": "img/ba11-prima-c8d2327249.jpg", "a": "img/ba11-dopo-da6952fbb5.jpg"}, {"b": "img/ba12-prima-8647e10180.jpg", "a": "img/ba12-dopo-36a892396f.jpg"}, {"b": "img/ba13-prima-af591cdcd1.jpg", "a": "img/ba13-dopo-09944e65b3.jpg"}];
+(function(){var lb=document.getElementById('lb');if(!lb)return;
+ var bI=document.getElementById('lbBefore'),aI=document.getElementById('lbAfter'),cur=0,BA=window.BA||[];
+ function show(i){if(!BA.length)return;cur=(i%BA.length+BA.length)%BA.length;bI.src=BA[cur].b;aI.src=BA[cur].a;}
+ function op(i){show(i);lb.classList.add('open');lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';}
+ function cl(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true');document.body.style.overflow='';}
+ document.querySelectorAll('.ba-pair2').forEach(function(p){p.addEventListener('click',function(){op(parseInt(p.dataset.idx||0));});});
+ document.getElementById('lbClose').addEventListener('click',cl);
+ document.getElementById('lbPrev').addEventListener('click',function(e){e.stopPropagation();show(cur-1);});
+ document.getElementById('lbNext').addEventListener('click',function(e){e.stopPropagation();show(cur+1);});
+ lb.addEventListener('click',function(e){if(e.target===lb)cl();});
+ document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='Escape')cl();else if(e.key==='ArrowLeft')show(cur-1);else if(e.key==='ArrowRight')show(cur+1);});
+})();</script>
+<script>(function(){function s(){var h=document.querySelector("header");if(h)document.documentElement.style.setProperty("--navh",(h.offsetHeight+2)+"px");}s();window.addEventListener("resize",s);window.addEventListener("load",s);})();</script>
+<script>(function(){var v=document.querySelector(".topvideo video");if(!v)return;var mq=window.matchMedia("(max-width:760px)"),cur="";function set(){var k=mq.matches?"m":"d";if(k===cur)return;cur=k;v.poster=v.getAttribute("data-poster-"+k);v.src=v.getAttribute("data-src-"+k);v.load();var p=v.play&&v.play();if(p&&p.catch)p.catch(function(){});}set();if(mq.addEventListener)mq.addEventListener("change",set);else if(mq.addListener)mq.addListener(set);})();</script>
+<script>(function(){var h=document.getElementById("hamb"),m=document.getElementById("mmenu");if(!h)return;h.addEventListener("click",function(){var o=m.classList.toggle("open");h.classList.toggle("open",o);h.setAttribute("aria-expanded",o);});m.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){m.classList.remove("open");h.classList.remove("open");h.setAttribute("aria-expanded","false");});});})();</script>
+<script>(function(){var f=document.querySelector('form[action*="web3forms"]');if(!f)return;var b=f.querySelector("button[type=submit]"),m=f.querySelector(".form-msg"),t=b.textContent;f.addEventListener("submit",function(e){e.preventDefault();if(f.botcheck&&f.botcheck.value)return;b.disabled=true;b.textContent="Invio in corso…";m.className="form-msg";m.textContent="";fetch(f.action,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(Object.fromEntries(new FormData(f)))}).then(function(r){return r.json();}).then(function(d){if(d.success){f.reset();m.className="form-msg ok";m.textContent="Grazie! Abbiamo ricevuto la tua richiesta: ti ricontatteremo al più presto.";}else{throw 0;}}).catch(function(){m.className="form-msg err";m.textContent="Invio non riuscito. Riprova tra poco oppure scrivici a info@vanitystays.it o su WhatsApp.";}).finally(function(){b.disabled=false;b.textContent=t;});});})();</script>
+</body>
+</html>
