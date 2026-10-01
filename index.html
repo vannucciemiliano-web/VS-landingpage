@@ -278,34 +278,60 @@ img,video{max-width:100%}
 @media(max-width:480px){.nav .logo{width:140px}.nav{padding:20px var(--pad)}.hero-txt{padding-top:32px;padding-bottom:38px}.foot-payoff,.dtr-eq{font-size:1.5rem}}
 .split .media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.split-rev .body{padding-left:max(var(--pad),calc((100vw - var(--maxw))/2 + var(--pad)))}@media(max-width:860px){.split-rev{display:flex;flex-direction:column}.split-rev .media{order:-1}}
 .card-link{text-decoration:none;color:inherit;cursor:pointer}
+/* video identità separato: visibile solo su mobile */
+.identita-video-m{display:none}
+.identita-video-m .ivm-media{background:#000}
+.identita-video-m .ivm-media video{width:100%;height:auto;display:block}
 
 /* ===================== SOLO MOBILE (≤600px) ===================== */
 @media(max-width:600px){
   /* tutti i testi +2px (base 16 -> 18) */
   html{font-size:18px}
 
-  /* media in formato 3:4 — hero, split modello e video identità */
+  /* media 3:4 — hero (Trasformiamo…) e split modello (Progettiamo…) */
   .hero-media{aspect-ratio:3/4;min-height:0}
-  .split .media{aspect-ratio:3/4;min-height:0}
+  #modello .media{aspect-ratio:3/4;min-height:0;background:#000}
+  #modello .media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 
-  /* Massimizza il rendimento: paragrafo sotto il titolo */
+  /* Massimizza: paragrafo sotto il titolo */
   .obj-lead{grid-template-columns:1fr;gap:16px;align-items:start}
 
-  /* cerchi: più piccoli (2 colonne, ~metà) */
-  .flowh{grid-template-columns:1fr 1fr;gap:14px}
-  .circle{aspect-ratio:1;border-radius:50%;padding:11%}
-  .circle::after{display:none}
-  .circle b{font-size:1.15rem;line-height:1.05;margin-bottom:6px}
-  .circle span{font-size:.72rem;line-height:1.3}
+  /* punti 01/02/03 su fondo greige; numeri +3px, titoli e paragrafi normali */
+  .numbers{background:var(--paper);color:var(--paper-ink);margin-inline:calc(-1*var(--pad));padding:clamp(28px,7vw,40px) var(--pad);gap:0}
+  .num{border-left:none;border-top:1px solid var(--line-d);padding:26px 0 0}
+  .num:first-child{border-top:none;padding-top:0}
+  .num .k{color:var(--muted-d);font-size:calc(var(--h2) + 3px);margin-bottom:14px}
+  .num h3{color:var(--paper-ink);font-size:var(--h3);margin-bottom:12px}
+  .num p{color:var(--muted-d);font-size:var(--lead);line-height:1.55}
 
-  /* "Il risultato…" trattato come titolo */
+  /* cerchi: testo come titolo+paragrafo, cerchi ingranditi (1 colonna) */
+  .flowh{grid-template-columns:1fr;gap:18px}
+  .circle{aspect-ratio:1;border-radius:50%;padding:13%}
+  .circle::after{display:none}
+  .circle b{font-size:var(--h3);line-height:1.05;margin-bottom:12px}
+  .circle span{font-size:var(--lead);line-height:1.45}
+
+  /* "Il risultato…" come titolo */
   .dtr-eq{font-size:var(--h3);line-height:1.25}
 
-  /* ===== TIMELINE VERTICALE (linea centrale che carica dall'alto) ===== */
+  /* IDENTITÀ: fondo greige, video spostato sotto la sezione */
+  #identita{background:var(--paper);color:var(--paper-ink)}
+  #identita .media{display:none}
+  #identita .eyebrow{color:var(--muted-d)}
+  #identita h2{color:var(--paper-ink)}
+  #identita p{color:var(--muted-d)}
+  #identita .btn{border-color:rgba(20,20,20,.5);color:var(--paper-ink)}
+  .identita-video-m{display:block}
+
+  /* TIMELINE: fondo greige, linea centrale, nessuna riga orizzontale */
+  #metodo-operativo{background:var(--paper);color:var(--paper-ink)}
+  #metodo-operativo .eyebrow{color:var(--muted-d)}
+  #metodo-operativo h2{color:var(--paper-ink)}
+  #metodo-operativo .tl-head-r p{color:var(--muted-d)}
   .tlwrap{display:flex;flex-direction:column}
   .phases,.tl,.tl-steps{display:contents}
   .tl-line{display:none}
-  .phase{margin:0 0 10px}
+  .phase{margin:0 0 10px;border-color:rgba(20,20,20,.5);color:var(--paper-ink);background:transparent}
   .phase.p1{order:1}
   .phase.p2{order:6;margin:16px 0 10px}
   .tl-steps .tl-step:nth-child(1){order:2}
@@ -315,16 +341,16 @@ img,video{max-width:100%}
   .tl-steps .tl-step:nth-child(5){order:7}
   .tl-steps .tl-step:nth-child(6){order:8}
   .tl-steps .tl-step:nth-child(7){order:9}
-  /* riga: numero a sinistra | linea centrale | descrizione a destra (bandiera sx) */
-  .tl-steps .tl-step{display:grid;grid-template-columns:44px 1fr;column-gap:28px;align-items:start;text-align:left;padding:20px 0;margin:0;border-top:1px solid var(--line);border-bottom:none;position:relative}
-  .tl-steps .tl-dot{grid-column:1;grid-row:1/3;align-self:start;margin:0}
-  .tl-steps .tl-step .t{grid-column:2;grid-row:1;margin:0 0 6px;min-height:0;text-align:left}
-  .tl-steps .tl-step .c{grid-column:2;grid-row:2;margin:0;text-align:left}
-  /* linea verticale centrale: guida + riempimento animato */
-  .tl-steps .tl-step::before{content:"";position:absolute;left:58px;top:0;bottom:-1px;width:1px;background:rgba(255,255,255,.14)}
-  .tl-steps .tl-step::after{content:"";position:absolute;left:58px;top:0;bottom:-1px;width:1px;background:rgba(255,255,255,.65);transform:scaleY(0);transform-origin:top}
-  .tlwrap.in .tl-steps .tl-step::after{transform:scaleY(1);transition:transform .45s linear}
-  /* sequenza di ingresso dot/testo */
+  /* riga: [titolo .. numero] | linea centrale | descrizione */
+  .tl-steps .tl-step{display:grid;grid-template-columns:1fr 1fr;column-gap:24px;align-items:center;position:relative;padding:18px 0;margin:0;border:none;text-align:left}
+  .tl-steps .tl-step .t{grid-column:1;grid-row:1;justify-self:end;text-align:right;align-self:center;margin:0;min-height:0;padding-right:58px;color:var(--paper-ink)}
+  .tl-steps .tl-dot{grid-column:1;grid-row:1;justify-self:end;align-self:center;margin:0;border-color:rgba(20,20,20,.5);background:var(--paper);color:var(--paper-ink)}
+  .tl-steps .tl-step .c{grid-column:2;grid-row:1;justify-self:start;text-align:left;margin:0;color:var(--muted-d);font-size:calc(.8rem + 2px)}
+  /* linea verticale centrale: guida + riempimento */
+  .tl-steps .tl-step::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;transform:translateX(-50%);background:rgba(20,20,20,.15)}
+  .tl-steps .tl-step::after{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;transform:translateX(-50%) scaleY(0);transform-origin:top;background:rgba(20,20,20,.55)}
+  .tlwrap.in .tl-steps .tl-step::after{transform:translateX(-50%) scaleY(1);transition:transform .45s linear}
+  /* sequenza di ingresso (si ferma al 4, riparte dal 5) */
   .tlwrap.in .phase.p1{transition-delay:0s}
   .tlwrap.in .tl-step:nth-child(1){transition-delay:.5s}
   .tlwrap.in .tl-step:nth-child(2){transition-delay:.9s}
@@ -334,7 +360,6 @@ img,video{max-width:100%}
   .tlwrap.in .tl-step:nth-child(5){transition-delay:2.9s}
   .tlwrap.in .tl-step:nth-child(6){transition-delay:3.3s}
   .tlwrap.in .tl-step:nth-child(7){transition-delay:3.7s}
-  /* riempimento linea sincronizzato (si ferma al 4, riparte dal 5) */
   .tlwrap.in .tl-steps .tl-step:nth-child(1)::after{transition-delay:.5s}
   .tlwrap.in .tl-steps .tl-step:nth-child(2)::after{transition-delay:.9s}
   .tlwrap.in .tl-steps .tl-step:nth-child(3)::after{transition-delay:1.3s}
@@ -343,16 +368,19 @@ img,video{max-width:100%}
   .tlwrap.in .tl-steps .tl-step:nth-child(6)::after{transition-delay:3.3s}
   .tlwrap.in .tl-steps .tl-step:nth-child(7)::after{transition-delay:3.7s}
 
-  /* KPI risultati: a coppie (2 per riga) separati da linee leggere */
-  .kpis{grid-template-columns:1fr 1fr;gap:0}
-  .kpi{padding:24px 16px;border-top:none}
+  /* RISULTATI: fondo nero, senza le due righe orizzontali di cornice */
+  .results{background:var(--ink);color:#fff}
+  .results h2{color:#fff}
+  .kpis{grid-template-columns:1fr 1fr;gap:0;border-top:none;border-bottom:none;padding:0}
+  .kpi{padding:24px 16px}
+  .kpi .v{color:#fff}
+  .kpi .l{color:var(--muted);max-width:none}
   .kpi:nth-child(odd){padding-left:0}
-  .kpi:nth-child(even){border-left:1px solid var(--line-d);padding-right:0}
+  .kpi:nth-child(even){border-left:1px solid rgba(255,255,255,.18);padding-right:0}
   .kpi:nth-child(-n+2){padding-top:0}
-  .kpi:nth-child(n+3){border-top:1px solid var(--line-d)}
-  .kpi .l{max-width:none}
+  .kpi:nth-child(n+3){border-top:1px solid rgba(255,255,255,.18)}
 
-  /* prima/dopo: coppie ingrandite x1.5 (scorrimento automatico invariato) */
+  /* prima/dopo: coppie x1.5 (scorrimento automatico invariato) */
   .ba-pair2{flex:0 0 135%}
 }
 </style>
@@ -422,7 +450,7 @@ img,video{max-width:100%}
 </section>
 
 <!-- IDENTITA E POSIZIONAMENTO -->
-<section class="split split-rev" style="padding:0">
+<section class="split split-rev" id="identita" style="padding:0">
   <div class="body">
     <div class="split-head"><span class="eyebrow">Identità e posizionamento</span><h2>Il carattere di un luogo, in ogni dettaglio.</h2></div>
     <p>Studiamo l'immobile, il contesto e le persone a cui si rivolge. Da qui prendono forma il concept, il nome, l'identità visiva e il linguaggio del progetto. Gli stessi elementi guidano le immagini, gli annunci e i dettagli dell'esperienza ospite, dando coerenza a ogni punto di contatto.</p>
@@ -431,44 +459,8 @@ img,video{max-width:100%}
   <div class="media"><video muted loop playsinline autoplay preload="metadata" poster="img/strutture_poster.jpg"><source src="video/strutture.webm" type="video/webm"><source src="video/strutture.mp4" type="video/mp4"></video></div>
 </section>
 
-<!-- SERVIZI timeline -->
-<section class="wrap" id="metodo-operativo" style="padding-block:clamp(52px,6.5vw,100px)">
-  <div class="tl-head2 reveal">
-    <div class="tl-head-l"><span class="eyebrow">Il metodo operativo</span><h2>Dalla strategia alla gestione:<br>curiamo tutto il ciclo.</h2></div>
-    <div class="tl-head-r"><p>Un percorso lineare in sette fasi, dall'analisi iniziale all'ottimizzazione continua dei ricavi.</p></div>
-  </div>
-  <div class="tlwrap">
-  <div class="phases">
-    <div class="phase p1">Setup &amp; Valorizzazione</div>
-    <div class="phase p2">Lancio, Gestione &amp; Ottimizzazione</div>
-  </div>
-  <div class="tl">
-    <div class="tl-line"><span></span></div>
-    <div class="tl-steps">
-      <div class="tl-step"><div class="t">Analisi</div><div class="tl-dot">1</div><div class="c">Fattibilità e valutazione potenziale</div></div>
-      <div class="tl-step"><div class="t">Strategia</div><div class="tl-dot">2</div><div class="c">Business plan</div></div>
-      <div class="tl-step"><div class="t">Valorizzazione</div><div class="tl-dot">3</div><div class="c">Interior design e branding</div></div>
-      <div class="tl-step"><div class="t">Shooting</div><div class="tl-dot">4</div><div class="c">Foto professionali per annuncio</div></div>
-      <div class="tl-step"><div class="t">Lancio</div><div class="tl-dot">5</div><div class="c">Listing, setup OTA e go-live</div></div>
-      <div class="tl-step"><div class="t">Gestione</div><div class="tl-dot">6</div><div class="c">Operatività continua</div></div>
-      <div class="tl-step"><div class="t">Ottimizzazione</div><div class="tl-dot">7</div><div class="c">Performance e report</div></div>
-    </div>
-  </div>
-  </div>
-</section>
-
-<!-- RESULTS KPI -->
-<section class="results" id="risultati">
-  <div class="wrap">
-    <h2 class="reveal">Risultati reali del nostro metodo.</h2>
-    <div class="kpis" id="kpis">
-      <div class="kpi"><div class="v" data-to="3900" data-sep="1">0</div><div class="l">persone ospitate</div></div>
-      <div class="kpi"><div class="v" data-to="4.9" data-dec="1" data-suffix=" / 5">0</div><div class="l">media rating delle nostre strutture</div></div>
-      <div class="kpi"><div class="v" data-to="315" data-suffix="/365">0</div><div class="l">media giorni occupati per anno</div></div>
-      <div class="kpi"><div class="v" data-to="375" data-prefix="&#8364;" data-suffix="k">0</div><div class="l">incassi generati per i proprietari</div></div>
-    </div>
-  </div>
-</section>
+<!-- VIDEO IDENTITA (solo mobile) -->
+<section class="identita-video-m"><div class="ivm-media"><video muted loop playsinline autoplay preload="metadata" poster="img/strutture_poster.jpg"><source src="video/strutture.webm" type="video/webm"><source src="video/strutture.mp4" type="video/mp4"></video></div></section>
 
 <!-- GALLERY prima/dopo -->
 <section class="gallery-sec">
@@ -510,6 +502,46 @@ img,video{max-width:100%}
 <div class="ba-pair2" data-idx="12"><div class="ba-cell2"><span>Prima</span><img src="img/ba12-prima-619c1991dc.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba12-dopo-345fa5f1cb.jpg" alt="Dopo" loading="lazy"></div></div>
 <div class="ba-pair2" data-idx="13"><div class="ba-cell2"><span>Prima</span><img src="img/ba13-prima-af591cdcd1.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba13-dopo-fb5968381f.jpg" alt="Dopo" loading="lazy"></div></div></div></div></div>
 </section>
+
+<!-- SERVIZI timeline -->
+<section class="wrap" id="metodo-operativo" style="padding-block:clamp(52px,6.5vw,100px)">
+  <div class="tl-head2 reveal">
+    <div class="tl-head-l"><span class="eyebrow">Il metodo operativo</span><h2>Dalla strategia alla gestione:<br>curiamo tutto il ciclo.</h2></div>
+    <div class="tl-head-r"><p>Un percorso lineare in sette fasi, dall'analisi iniziale all'ottimizzazione continua dei ricavi.</p></div>
+  </div>
+  <div class="tlwrap">
+  <div class="phases">
+    <div class="phase p1">Setup &amp; Valorizzazione</div>
+    <div class="phase p2">Lancio, Gestione &amp; Ottimizzazione</div>
+  </div>
+  <div class="tl">
+    <div class="tl-line"><span></span></div>
+    <div class="tl-steps">
+      <div class="tl-step"><div class="t">Analisi</div><div class="tl-dot">1</div><div class="c">Fattibilità e valutazione potenziale</div></div>
+      <div class="tl-step"><div class="t">Strategia</div><div class="tl-dot">2</div><div class="c">Business plan</div></div>
+      <div class="tl-step"><div class="t">Valorizzazione</div><div class="tl-dot">3</div><div class="c">Interior design e branding</div></div>
+      <div class="tl-step"><div class="t">Shooting</div><div class="tl-dot">4</div><div class="c">Foto professionali per annuncio</div></div>
+      <div class="tl-step"><div class="t">Lancio</div><div class="tl-dot">5</div><div class="c">Listing, setup OTA e go-live</div></div>
+      <div class="tl-step"><div class="t">Gestione</div><div class="tl-dot">6</div><div class="c">Operatività continua</div></div>
+      <div class="tl-step"><div class="t">Ottimizzazione</div><div class="tl-dot">7</div><div class="c">Performance e report</div></div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- RESULTS KPI -->
+<section class="results" id="risultati">
+  <div class="wrap">
+    <h2 class="reveal">Risultati reali del nostro metodo.</h2>
+    <div class="kpis" id="kpis">
+      <div class="kpi"><div class="v" data-to="3900" data-sep="1">0</div><div class="l">persone ospitate</div></div>
+      <div class="kpi"><div class="v" data-to="4.9" data-dec="1" data-suffix=" / 5">0</div><div class="l">media rating delle nostre strutture</div></div>
+      <div class="kpi"><div class="v" data-to="315" data-suffix="/365">0</div><div class="l">media giorni occupati per anno</div></div>
+      <div class="kpi"><div class="v" data-to="375" data-prefix="&#8364;" data-suffix="k">0</div><div class="l">incassi generati per i proprietari</div></div>
+    </div>
+  </div>
+</section>
+
 
 <!-- CARDS -->
 <section class="results results2" id="strutture">
