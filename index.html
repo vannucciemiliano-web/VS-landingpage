@@ -278,10 +278,29 @@ img,video{max-width:100%}
 @media(max-width:480px){.nav .logo{width:140px}.nav{padding:20px var(--pad)}.hero-txt{padding-top:32px;padding-bottom:38px}.foot-payoff,.dtr-eq{font-size:1.5rem}}
 .split .media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.split-rev .body{padding-left:max(var(--pad),calc((100vw - var(--maxw))/2 + var(--pad)))}@media(max-width:860px){.split-rev{display:flex;flex-direction:column}.split-rev .media{order:-1}}
 .card-link{text-decoration:none;color:inherit;cursor:pointer}
-/* video identità separato: visibile solo su mobile */
+/* elementi solo-mobile: nascosti di default (desktop) */
 .identita-video-m{display:none}
 .identita-video-m .ivm-media{background:#000}
-.identita-video-m .ivm-media video{width:100%;height:auto;display:block}
+.modello-photo-m{display:none}
+.modello-photo-m .mpm-media{background:#000}
+
+/* SOLO DESKTOP (≥601px): metodo greige, risultati nero */
+@media(min-width:601px){
+  #metodo-operativo{background:var(--paper);color:var(--paper-ink)}
+  #metodo-operativo .eyebrow{color:var(--muted-d)}
+  #metodo-operativo h2{color:var(--paper-ink)}
+  #metodo-operativo .tl-head-r p{color:var(--muted-d)}
+  #metodo-operativo .phase{border-color:rgba(20,20,20,.5);color:var(--paper-ink)}
+  #metodo-operativo .tl-line{background:rgba(20,20,20,.12)}
+  #metodo-operativo .tl-line span{background:rgba(20,20,20,.6)}
+  #metodo-operativo .tl-dot{border-color:rgba(20,20,20,.5);background:var(--paper);color:var(--paper-ink)}
+  #metodo-operativo .tl-step .c{color:var(--muted-d)}
+  #risultati{background:var(--ink);color:#fff}
+  #risultati h2{color:#fff}
+  #risultati .kpis{border-top-color:rgba(255,255,255,.18);border-bottom-color:rgba(255,255,255,.18)}
+  #risultati .kpi .v{color:#fff}
+  #risultati .kpi .l{color:var(--muted)}
+}
 
 /* ===================== SOLO MOBILE (≤600px) ===================== */
 @media(max-width:600px){
@@ -292,36 +311,40 @@ img,video{max-width:100%}
   .hero-media{aspect-ratio:3/4;min-height:0}
   #modello .media{aspect-ratio:3/4;min-height:0;background:#000}
   #modello .media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  /* foto aggiuntiva 3:4 dopo i testi di "Progettiamo asset…" */
+  .modello-photo-m{display:block;padding:0;margin:0}
+  .modello-photo-m .mpm-media{aspect-ratio:3/4;overflow:hidden}
+  .modello-photo-m .mpm-media img{width:100%;height:100%;object-fit:cover;display:block}
 
   /* Massimizza: paragrafo sotto il titolo */
   .obj-lead{grid-template-columns:1fr;gap:16px;align-items:start}
 
-  /* punti 01/02/03 su fondo greige; numeri +3px, titoli e paragrafi normali */
-  .numbers{background:var(--paper);color:var(--paper-ink);margin-inline:calc(-1*var(--pad));padding:clamp(28px,7vw,40px) var(--pad);gap:0}
-  .num{border-left:none;border-top:1px solid var(--line-d);padding:26px 0 0}
-  .num:first-child{border-top:none;padding-top:0}
-  .num .k{color:var(--muted-d);font-size:calc(var(--h2) + 3px);margin-bottom:14px}
-  .num h3{color:var(--paper-ink);font-size:var(--h3);margin-bottom:12px}
-  .num p{color:var(--muted-d);font-size:var(--lead);line-height:1.55}
+  /* punti 01/02/03: fondo NERO; numeri +3px, titoli normali, paragrafi -2px */
+  .num .k{font-size:calc(var(--h2) + 3px);margin-bottom:14px}
+  .num h3{font-size:var(--h3);margin-bottom:12px}
+  .num p{font-size:calc(var(--lead) - 2px)}
 
-  /* cerchi: testo come titolo+paragrafo, cerchi ingranditi (1 colonna) */
-  .flowh{grid-template-columns:1fr;gap:18px}
-  .circle{aspect-ratio:1;border-radius:50%;padding:13%}
+  /* cerchi: ridotti di 1.5 (shape e testo) */
+  .flowh{grid-template-columns:1fr;gap:16px}
+  .circle{aspect-ratio:1;border-radius:50%;padding:12%;max-width:235px;margin-inline:auto}
   .circle::after{display:none}
-  .circle b{font-size:var(--h3);line-height:1.05;margin-bottom:12px}
-  .circle span{font-size:var(--lead);line-height:1.45}
+  .circle b{font-size:calc(var(--h3) / 1.5);line-height:1.05;margin-bottom:10px}
+  .circle span{font-size:calc(var(--lead) / 1.5);line-height:1.4}
 
   /* "Il risultato…" come titolo */
   .dtr-eq{font-size:var(--h3);line-height:1.25}
 
-  /* IDENTITÀ: fondo greige, video spostato sotto la sezione */
+  /* IDENTITÀ: fondo greige, video 3:4 subito dopo i testi (no vuoto nero) */
   #identita{background:var(--paper);color:var(--paper-ink)}
   #identita .media{display:none}
+  #identita .body{padding-bottom:clamp(30px,6vw,46px)}
   #identita .eyebrow{color:var(--muted-d)}
   #identita h2{color:var(--paper-ink)}
   #identita p{color:var(--muted-d)}
   #identita .btn{border-color:rgba(20,20,20,.5);color:var(--paper-ink)}
-  .identita-video-m{display:block}
+  .identita-video-m{display:block;margin:0;padding:0}
+  .identita-video-m .ivm-media{aspect-ratio:3/4;overflow:hidden;line-height:0}
+  .identita-video-m .ivm-media video{width:100%;height:100%;object-fit:cover;display:block}
 
   /* TIMELINE: fondo greige, linea centrale, nessuna riga orizzontale */
   #metodo-operativo{background:var(--paper);color:var(--paper-ink)}
@@ -341,16 +364,13 @@ img,video{max-width:100%}
   .tl-steps .tl-step:nth-child(5){order:7}
   .tl-steps .tl-step:nth-child(6){order:8}
   .tl-steps .tl-step:nth-child(7){order:9}
-  /* riga: [titolo .. numero] | linea centrale | descrizione */
   .tl-steps .tl-step{display:grid;grid-template-columns:1fr 1fr;column-gap:24px;align-items:center;position:relative;padding:18px 0;margin:0;border:none;text-align:left}
   .tl-steps .tl-step .t{grid-column:1;grid-row:1;justify-self:end;text-align:right;align-self:center;margin:0;min-height:0;padding-right:58px;color:var(--paper-ink)}
   .tl-steps .tl-dot{grid-column:1;grid-row:1;justify-self:end;align-self:center;margin:0;border-color:rgba(20,20,20,.5);background:var(--paper);color:var(--paper-ink)}
   .tl-steps .tl-step .c{grid-column:2;grid-row:1;justify-self:start;text-align:left;margin:0;color:var(--muted-d);font-size:calc(.8rem + 2px)}
-  /* linea verticale centrale: guida + riempimento */
   .tl-steps .tl-step::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;transform:translateX(-50%);background:rgba(20,20,20,.15)}
   .tl-steps .tl-step::after{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;transform:translateX(-50%) scaleY(0);transform-origin:top;background:rgba(20,20,20,.55)}
   .tlwrap.in .tl-steps .tl-step::after{transform:translateX(-50%) scaleY(1);transition:transform .45s linear}
-  /* sequenza di ingresso (si ferma al 4, riparte dal 5) */
   .tlwrap.in .phase.p1{transition-delay:0s}
   .tlwrap.in .tl-step:nth-child(1){transition-delay:.5s}
   .tlwrap.in .tl-step:nth-child(2){transition-delay:.9s}
@@ -368,17 +388,17 @@ img,video{max-width:100%}
   .tlwrap.in .tl-steps .tl-step:nth-child(6)::after{transition-delay:3.3s}
   .tlwrap.in .tl-steps .tl-step:nth-child(7)::after{transition-delay:3.7s}
 
-  /* RISULTATI: fondo nero, senza le due righe orizzontali di cornice */
-  .results{background:var(--ink);color:#fff}
-  .results h2{color:#fff}
-  .kpis{grid-template-columns:1fr 1fr;gap:0;border-top:none;border-bottom:none;padding:0}
-  .kpi{padding:24px 16px}
-  .kpi .v{color:#fff}
-  .kpi .l{color:var(--muted);max-width:none}
-  .kpi:nth-child(odd){padding-left:0}
-  .kpi:nth-child(even){border-left:1px solid rgba(255,255,255,.18);padding-right:0}
-  .kpi:nth-child(-n+2){padding-top:0}
-  .kpi:nth-child(n+3){border-top:1px solid rgba(255,255,255,.18)}
+  /* RISULTATI (solo #risultati): fondo nero, KPI a coppie senza cornice */
+  #risultati{background:var(--ink);color:#fff}
+  #risultati h2{color:#fff}
+  #risultati .kpis{grid-template-columns:1fr 1fr;gap:0;border-top:none;border-bottom:none;padding:0}
+  #risultati .kpi{padding:24px 16px}
+  #risultati .kpi .v{color:#fff}
+  #risultati .kpi .l{color:var(--muted);max-width:none}
+  #risultati .kpi:nth-child(odd){padding-left:0}
+  #risultati .kpi:nth-child(even){border-left:1px solid rgba(255,255,255,.18);padding-right:0}
+  #risultati .kpi:nth-child(-n+2){padding-top:0}
+  #risultati .kpi:nth-child(n+3){border-top:1px solid rgba(255,255,255,.18)}
 
   /* prima/dopo: coppie x1.5 (scorrimento automatico invariato) */
   .ba-pair2{flex:0 0 135%}
@@ -437,6 +457,9 @@ img,video{max-width:100%}
     <div><a href="#strutture" class="btn">Guarda le strutture</a></div>
   </div>
 </section>
+
+<!-- FOTO MODELLO (solo mobile) -->
+<section class="modello-photo-m"><div class="mpm-media"><img src="img/modello-photo.jpg" alt="Interior design di un asset Vanity Stays" loading="lazy"></div></section>
 
 <!-- cerchi -->
 <section class="wrap flowh-sec">
