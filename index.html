@@ -283,6 +283,8 @@ img,video{max-width:100%}
 #strutture .eyebrow{display:block;margin-bottom:12px;color:var(--muted)}
 #strutture h2{color:#fff}
 #strutture .card{border:none}
+/* voci del form a opacità piena (desktop + mobile) */
+#contatto label{color:#fff}
 /* elementi solo-mobile: nascosti di default (desktop) */
 .identita-video-m{display:none}
 .identita-video-m .ivm-media{background:#000}
@@ -296,7 +298,7 @@ img,video{max-width:100%}
 
   /* media 3:4 — hero (Trasformiamo…) e split modello (Progettiamo…) */
   .hero-media{aspect-ratio:3/4;min-height:0}
-  #modello .media{aspect-ratio:3/4;min-height:0;background:#000}
+  #modello .media{display:none}
   #modello .media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
   /* foto aggiuntiva 3:4 dopo i testi di "Progettiamo asset…" */
   .modello-photo-m{display:block;padding:0;margin:0}
@@ -313,22 +315,22 @@ img,video{max-width:100%}
 
   /* cerchi: ridotti di 1.5 (shape e testo) */
   .flowh{grid-template-columns:1fr;gap:16px}
-  .circle{aspect-ratio:1;border-radius:50%;padding:12%;max-width:235px;margin-inline:auto}
+  .circle{aspect-ratio:1;border-radius:50%;padding:12%;max-width:225px;margin-inline:auto}
   .circle::after{display:none}
-  .circle b{font-size:calc(var(--h3) / 1.5);line-height:1.05;margin-bottom:10px}
-  .circle span{font-size:calc(var(--lead) / 1.5);line-height:1.4}
+  .circle b{font-size:calc(var(--h3) / 1.5 + 2px);line-height:1.05;margin-bottom:10px}
+  .circle span{font-size:calc(var(--lead) / 1.5 + 2px);line-height:1.4}
 
   /* "Il risultato…" come titolo */
   .dtr-eq{font-size:var(--h3);line-height:1.25}
 
   /* IDENTITÀ: fondo greige, video 3:4 subito dopo i testi (no vuoto nero) */
-  #identita{background:var(--paper);color:var(--paper-ink)}
+  #identita{background:var(--ink);color:#fff}
   #identita .media{display:none}
   #identita .body{padding-bottom:clamp(30px,6vw,46px)}
-  #identita .eyebrow{color:var(--muted-d)}
-  #identita h2{color:var(--paper-ink)}
-  #identita p{color:var(--muted-d)}
-  #identita .btn{border-color:rgba(20,20,20,.5);color:var(--paper-ink)}
+  #identita .eyebrow{color:var(--muted)}
+  #identita h2{color:#fff}
+  #identita p{color:var(--muted)}
+  #identita .btn{border-color:rgba(255,255,255,.5);color:#fff}
   .identita-video-m{display:block;margin:0;padding:0}
   .identita-video-m .ivm-media{aspect-ratio:3/4;overflow:hidden;line-height:0}
   .identita-video-m .ivm-media video{width:100%;height:100%;object-fit:cover;display:block}
@@ -371,11 +373,19 @@ img,video{max-width:100%}
   .tlwrap.in .tl-steps .tl-step:nth-child(6)::after{transition-delay:3.3s}
   .tlwrap.in .tl-steps .tl-step:nth-child(7)::after{transition-delay:3.7s}
 
-  /* RISULTATI (fondo greige): KPI 1 per riga, descrizioni su una riga */
-  #risultati .kpis{grid-template-columns:1fr;gap:0;border-top:none;border-bottom:none;padding:0}
-  #risultati .kpi{padding:22px 0 0;border-top:1px solid var(--line-d)}
-  #risultati .kpi:first-child{border-top:none;padding-top:0}
-  #risultati .kpi .l{max-width:none}
+  /* RISULTATI (fondo greige): KPI a gruppi di 2 per riga, separati da linea verticale */
+  #risultati .kpis{grid-template-columns:1fr 1fr;gap:0;border-top:none;border-bottom:none;padding:0}
+  #risultati .kpi{padding:24px 16px}
+  #risultati .kpi .l{max-width:none;white-space:normal}
+  #risultati .kpi:nth-child(odd){padding-left:0}
+  #risultati .kpi:nth-child(even){border-left:1px solid var(--line-d);padding-right:0}
+  #risultati .kpi:nth-child(-n+2){padding-top:0}
+  #risultati .kpi:nth-child(n+3){border-top:1px solid var(--line-d)}
+
+  /* numeri nelle schede di progetto: -1px */
+  #strutture .stat .v{font-size:calc(1.45rem - 1px)}
+  /* "Le nostre strutture" su una riga */
+  #strutture h2{white-space:nowrap;font-size:clamp(1.6rem,9vw,2.4rem)}
 
   /* prima/dopo: coppie x1.5 (scorrimento automatico invariato) */
   .ba-pair2{flex:0 0 135%}
@@ -425,6 +435,9 @@ img,video{max-width:100%}
   </div>
 </section>
 
+<!-- FOTO MODELLO (solo mobile) -->
+<section class="modello-photo-m"><div class="mpm-media"><img src="img/modello-photo.jpg" alt="Interior design di un asset Vanity Stays" loading="lazy"></div></section>
+
 <!-- DESIGN-TO-RENT -->
 <section class="split" id="modello" style="padding:0">
   <div class="media"><img src="img/0789ef7aac.jpg" alt="Interior design curato di un asset Vanity Stays"></div>
@@ -435,8 +448,6 @@ img,video{max-width:100%}
   </div>
 </section>
 
-<!-- FOTO MODELLO (solo mobile) -->
-<section class="modello-photo-m"><div class="mpm-media"><img src="img/modello-photo.jpg" alt="Interior design di un asset Vanity Stays" loading="lazy"></div></section>
 
 <!-- cerchi -->
 <section class="wrap flowh-sec">
@@ -541,7 +552,6 @@ img,video{max-width:100%}
     </div>
   </div>
 </section>
-
 
 <!-- CARDS -->
 <section class="results results2" id="strutture">
