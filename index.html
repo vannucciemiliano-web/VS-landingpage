@@ -177,7 +177,7 @@ header.at-top{background:transparent;backdrop-filter:none;-webkit-backdrop-filte
 .results .eyebrow{color:var(--muted-d)}.results h2{color:var(--paper-ink)}
 .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,2.4vw,42px);margin-top:clamp(28px,3.5vw,48px);border-top:1px solid var(--line-d);border-bottom:1px solid var(--line-d);padding:clamp(30px,3.4vw,48px) 0}
 .kpi .v{font-family:var(--serif);font-size:clamp(2.6rem,5vw,4.4rem);line-height:1;color:var(--paper-ink)}
-.kpi .l{font-size:.82rem;letter-spacing:.05em;color:var(--muted-d);margin-top:14px;max-width:22ch}
+.kpi .l{font-size:.82rem;letter-spacing:.05em;color:var(--muted-d);margin-top:14px;max-width:none;white-space:nowrap}
 @media(max-width:900px){.kpis{grid-template-columns:1fr 1fr;gap:30px}}@media(max-width:520px){.kpis{grid-template-columns:1fr}}
 
 /* CARDS carosello */
@@ -278,29 +278,16 @@ img,video{max-width:100%}
 @media(max-width:480px){.nav .logo{width:140px}.nav{padding:20px var(--pad)}.hero-txt{padding-top:32px;padding-bottom:38px}.foot-payoff,.dtr-eq{font-size:1.5rem}}
 .split .media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.split-rev .body{padding-left:max(var(--pad),calc((100vw - var(--maxw))/2 + var(--pad)))}@media(max-width:860px){.split-rev{display:flex;flex-direction:column}.split-rev .media{order:-1}}
 .card-link{text-decoration:none;color:inherit;cursor:pointer}
+/* "Le nostre strutture": fondo nero, eyebrow standard, niente bordo scheda (desktop + mobile) */
+#strutture{background:var(--ink);color:#fff}
+#strutture .eyebrow{display:block;margin-bottom:12px;color:var(--muted)}
+#strutture h2{color:#fff}
+#strutture .card{border:none}
 /* elementi solo-mobile: nascosti di default (desktop) */
 .identita-video-m{display:none}
 .identita-video-m .ivm-media{background:#000}
 .modello-photo-m{display:none}
 .modello-photo-m .mpm-media{background:#000}
-
-/* SOLO DESKTOP (≥601px): metodo greige, risultati nero */
-@media(min-width:601px){
-  #metodo-operativo{background:var(--paper);color:var(--paper-ink)}
-  #metodo-operativo .eyebrow{color:var(--muted-d)}
-  #metodo-operativo h2{color:var(--paper-ink)}
-  #metodo-operativo .tl-head-r p{color:var(--muted-d)}
-  #metodo-operativo .phase{border-color:rgba(20,20,20,.5);color:var(--paper-ink)}
-  #metodo-operativo .tl-line{background:rgba(20,20,20,.12)}
-  #metodo-operativo .tl-line span{background:rgba(20,20,20,.6)}
-  #metodo-operativo .tl-dot{border-color:rgba(20,20,20,.5);background:var(--paper);color:var(--paper-ink)}
-  #metodo-operativo .tl-step .c{color:var(--muted-d)}
-  #risultati{background:var(--ink);color:#fff}
-  #risultati h2{color:#fff}
-  #risultati .kpis{border-top-color:rgba(255,255,255,.18);border-bottom-color:rgba(255,255,255,.18)}
-  #risultati .kpi .v{color:#fff}
-  #risultati .kpi .l{color:var(--muted)}
-}
 
 /* ===================== SOLO MOBILE (≤600px) ===================== */
 @media(max-width:600px){
@@ -346,15 +333,11 @@ img,video{max-width:100%}
   .identita-video-m .ivm-media{aspect-ratio:3/4;overflow:hidden;line-height:0}
   .identita-video-m .ivm-media video{width:100%;height:100%;object-fit:cover;display:block}
 
-  /* TIMELINE: fondo greige, linea centrale, nessuna riga orizzontale */
-  #metodo-operativo{background:var(--paper);color:var(--paper-ink)}
-  #metodo-operativo .eyebrow{color:var(--muted-d)}
-  #metodo-operativo h2{color:var(--paper-ink)}
-  #metodo-operativo .tl-head-r p{color:var(--muted-d)}
+  /* TIMELINE (fondo nero): linea centrale, nessuna riga orizzontale */
   .tlwrap{display:flex;flex-direction:column}
   .phases,.tl,.tl-steps{display:contents}
   .tl-line{display:none}
-  .phase{margin:0 0 10px;border-color:rgba(20,20,20,.5);color:var(--paper-ink);background:transparent}
+  .phase{margin:0 0 10px;border-color:rgba(255,255,255,.5);color:#fff;background:transparent}
   .phase.p1{order:1}
   .phase.p2{order:6;margin:16px 0 10px}
   .tl-steps .tl-step:nth-child(1){order:2}
@@ -365,11 +348,11 @@ img,video{max-width:100%}
   .tl-steps .tl-step:nth-child(6){order:8}
   .tl-steps .tl-step:nth-child(7){order:9}
   .tl-steps .tl-step{display:grid;grid-template-columns:1fr 1fr;column-gap:24px;align-items:center;position:relative;padding:18px 0;margin:0;border:none;text-align:left}
-  .tl-steps .tl-step .t{grid-column:1;grid-row:1;justify-self:end;text-align:right;align-self:center;margin:0;min-height:0;padding-right:58px;color:var(--paper-ink)}
-  .tl-steps .tl-dot{grid-column:1;grid-row:1;justify-self:end;align-self:center;margin:0;border-color:rgba(20,20,20,.5);background:var(--paper);color:var(--paper-ink)}
-  .tl-steps .tl-step .c{grid-column:2;grid-row:1;justify-self:start;text-align:left;margin:0;color:var(--muted-d);font-size:calc(.8rem + 2px)}
-  .tl-steps .tl-step::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;transform:translateX(-50%);background:rgba(20,20,20,.15)}
-  .tl-steps .tl-step::after{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;transform:translateX(-50%) scaleY(0);transform-origin:top;background:rgba(20,20,20,.55)}
+  .tl-steps .tl-step .t{grid-column:1;grid-row:1;justify-self:end;text-align:right;align-self:center;margin:0;min-height:0;padding-right:58px;color:#fff}
+  .tl-steps .tl-dot{grid-column:1;grid-row:1;justify-self:end;align-self:center;margin:0;border-color:rgba(255,255,255,.5);background:var(--ink);color:#fff}
+  .tl-steps .tl-step .c{grid-column:2;grid-row:1;justify-self:start;text-align:left;margin:0;color:var(--muted);font-size:calc(.8rem + 2px)}
+  .tl-steps .tl-step::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;transform:translateX(-50%);background:rgba(255,255,255,.14)}
+  .tl-steps .tl-step::after{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;transform:translateX(-50%) scaleY(0);transform-origin:top;background:rgba(255,255,255,.6)}
   .tlwrap.in .tl-steps .tl-step::after{transform:translateX(-50%) scaleY(1);transition:transform .45s linear}
   .tlwrap.in .phase.p1{transition-delay:0s}
   .tlwrap.in .tl-step:nth-child(1){transition-delay:.5s}
@@ -388,17 +371,11 @@ img,video{max-width:100%}
   .tlwrap.in .tl-steps .tl-step:nth-child(6)::after{transition-delay:3.3s}
   .tlwrap.in .tl-steps .tl-step:nth-child(7)::after{transition-delay:3.7s}
 
-  /* RISULTATI (solo #risultati): fondo nero, KPI a coppie senza cornice */
-  #risultati{background:var(--ink);color:#fff}
-  #risultati h2{color:#fff}
-  #risultati .kpis{grid-template-columns:1fr 1fr;gap:0;border-top:none;border-bottom:none;padding:0}
-  #risultati .kpi{padding:24px 16px}
-  #risultati .kpi .v{color:#fff}
-  #risultati .kpi .l{color:var(--muted);max-width:none}
-  #risultati .kpi:nth-child(odd){padding-left:0}
-  #risultati .kpi:nth-child(even){border-left:1px solid rgba(255,255,255,.18);padding-right:0}
-  #risultati .kpi:nth-child(-n+2){padding-top:0}
-  #risultati .kpi:nth-child(n+3){border-top:1px solid rgba(255,255,255,.18)}
+  /* RISULTATI (fondo greige): KPI 1 per riga, descrizioni su una riga */
+  #risultati .kpis{grid-template-columns:1fr;gap:0;border-top:none;border-bottom:none;padding:0}
+  #risultati .kpi{padding:22px 0 0;border-top:1px solid var(--line-d)}
+  #risultati .kpi:first-child{border-top:none;padding-top:0}
+  #risultati .kpi .l{max-width:none}
 
   /* prima/dopo: coppie x1.5 (scorrimento automatico invariato) */
   .ba-pair2{flex:0 0 135%}
@@ -496,8 +473,8 @@ img,video{max-width:100%}
       <p class="reveal">Interventi mirati, arredo curato ed in brand, valorizzazione degli spazi.</p>
     </div>
   </div>
-  <div class="wrap"><div class="ba-viewport"><div class="ba-track2" id="baTrack"><div class="ba-pair2" data-idx="0"><div class="ba-cell2"><span>Prima</span><img src="img/ba00-prima-6fb76b67c2.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba00-dopo-c3f02a9d49.jpg" alt="Dopo" loading="lazy"></div></div>
-<div class="ba-pair2" data-idx="1"><div class="ba-cell2"><span>Prima</span><img src="img/ba01-prima-9390e25da9.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba01-dopo-8ea10c67ac.jpg" alt="Dopo" loading="lazy"></div></div>
+  <div class="wrap"><div class="ba-viewport"><div class="ba-track2" id="baTrack"><div class="ba-pair2" data-idx="0"><div class="ba-cell2"><span>Prima</span><img src="img/p00-prima.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba01-dopo-8ea10c67ac.jpg" alt="Dopo" loading="lazy"></div></div>
+<div class="ba-pair2" data-idx="1"><div class="ba-cell2"><span>Prima</span><img src="img/p01-prima.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba11-dopo-53b49ea128.jpg" alt="Dopo" loading="lazy"></div></div>
 <div class="ba-pair2" data-idx="2"><div class="ba-cell2"><span>Prima</span><img src="img/ba02-prima-ac87a9c45d.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba02-dopo-9ae2a80d9e.jpg" alt="Dopo" loading="lazy"></div></div>
 <div class="ba-pair2" data-idx="3"><div class="ba-cell2"><span>Prima</span><img src="img/ba03-prima-0f340db344.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba03-dopo-ebc0786233.jpg" alt="Dopo" loading="lazy"></div></div>
 <div class="ba-pair2" data-idx="4"><div class="ba-cell2"><span>Prima</span><img src="img/ba04-prima-9619707226.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba04-dopo-25ffd0a067.jpg" alt="Dopo" loading="lazy"></div></div>
@@ -507,11 +484,11 @@ img,video{max-width:100%}
 <div class="ba-pair2" data-idx="8"><div class="ba-cell2"><span>Prima</span><img src="img/ba08-prima-5a372d6ca2.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba08-dopo-219baf4f5d.jpg" alt="Dopo" loading="lazy"></div></div>
 <div class="ba-pair2" data-idx="9"><div class="ba-cell2"><span>Prima</span><img src="img/ba09-prima-812889d27a.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba09-dopo-77775afb5e.jpg" alt="Dopo" loading="lazy"></div></div>
 <div class="ba-pair2" data-idx="10"><div class="ba-cell2"><span>Prima</span><img src="img/ba10-prima-e4382928b8.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba10-dopo-3da90d4879.jpg" alt="Dopo" loading="lazy"></div></div>
-<div class="ba-pair2" data-idx="11"><div class="ba-cell2"><span>Prima</span><img src="img/ba11-prima-c8d2327249.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba11-dopo-53b49ea128.jpg" alt="Dopo" loading="lazy"></div></div>
+<div class="ba-pair2" data-idx="11"><div class="ba-cell2"><span>Prima</span><img src="img/p11-prima.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba13-dopo-fb5968381f.jpg" alt="Dopo" loading="lazy"></div></div>
 <div class="ba-pair2" data-idx="12"><div class="ba-cell2"><span>Prima</span><img src="img/ba12-prima-619c1991dc.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba12-dopo-345fa5f1cb.jpg" alt="Dopo" loading="lazy"></div></div>
-<div class="ba-pair2" data-idx="13"><div class="ba-cell2"><span>Prima</span><img src="img/ba13-prima-af591cdcd1.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba13-dopo-fb5968381f.jpg" alt="Dopo" loading="lazy"></div></div>
-<div class="ba-pair2" data-idx="0"><div class="ba-cell2"><span>Prima</span><img src="img/ba00-prima-6fb76b67c2.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba00-dopo-c3f02a9d49.jpg" alt="Dopo" loading="lazy"></div></div>
-<div class="ba-pair2" data-idx="1"><div class="ba-cell2"><span>Prima</span><img src="img/ba01-prima-9390e25da9.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba01-dopo-8ea10c67ac.jpg" alt="Dopo" loading="lazy"></div></div>
+<div class="ba-pair2" data-idx="13"><div class="ba-cell2"><span>Prima</span><img src="img/p13-prima.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/p00-dopo.jpg" alt="Dopo" loading="lazy"></div></div>
+<div class="ba-pair2" data-idx="0"><div class="ba-cell2"><span>Prima</span><img src="img/p00-prima.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba01-dopo-8ea10c67ac.jpg" alt="Dopo" loading="lazy"></div></div>
+<div class="ba-pair2" data-idx="1"><div class="ba-cell2"><span>Prima</span><img src="img/p01-prima.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba11-dopo-53b49ea128.jpg" alt="Dopo" loading="lazy"></div></div>
 <div class="ba-pair2" data-idx="2"><div class="ba-cell2"><span>Prima</span><img src="img/ba02-prima-ac87a9c45d.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba02-dopo-9ae2a80d9e.jpg" alt="Dopo" loading="lazy"></div></div>
 <div class="ba-pair2" data-idx="3"><div class="ba-cell2"><span>Prima</span><img src="img/ba03-prima-0f340db344.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba03-dopo-ebc0786233.jpg" alt="Dopo" loading="lazy"></div></div>
 <div class="ba-pair2" data-idx="4"><div class="ba-cell2"><span>Prima</span><img src="img/ba04-prima-9619707226.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba04-dopo-25ffd0a067.jpg" alt="Dopo" loading="lazy"></div></div>
@@ -521,9 +498,9 @@ img,video{max-width:100%}
 <div class="ba-pair2" data-idx="8"><div class="ba-cell2"><span>Prima</span><img src="img/ba08-prima-5a372d6ca2.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba08-dopo-219baf4f5d.jpg" alt="Dopo" loading="lazy"></div></div>
 <div class="ba-pair2" data-idx="9"><div class="ba-cell2"><span>Prima</span><img src="img/ba09-prima-812889d27a.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba09-dopo-77775afb5e.jpg" alt="Dopo" loading="lazy"></div></div>
 <div class="ba-pair2" data-idx="10"><div class="ba-cell2"><span>Prima</span><img src="img/ba10-prima-e4382928b8.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba10-dopo-3da90d4879.jpg" alt="Dopo" loading="lazy"></div></div>
-<div class="ba-pair2" data-idx="11"><div class="ba-cell2"><span>Prima</span><img src="img/ba11-prima-c8d2327249.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba11-dopo-53b49ea128.jpg" alt="Dopo" loading="lazy"></div></div>
+<div class="ba-pair2" data-idx="11"><div class="ba-cell2"><span>Prima</span><img src="img/p11-prima.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba13-dopo-fb5968381f.jpg" alt="Dopo" loading="lazy"></div></div>
 <div class="ba-pair2" data-idx="12"><div class="ba-cell2"><span>Prima</span><img src="img/ba12-prima-619c1991dc.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba12-dopo-345fa5f1cb.jpg" alt="Dopo" loading="lazy"></div></div>
-<div class="ba-pair2" data-idx="13"><div class="ba-cell2"><span>Prima</span><img src="img/ba13-prima-af591cdcd1.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/ba13-dopo-fb5968381f.jpg" alt="Dopo" loading="lazy"></div></div></div></div></div>
+<div class="ba-pair2" data-idx="13"><div class="ba-cell2"><span>Prima</span><img src="img/p13-prima.jpg" alt="Prima" loading="lazy"></div><div class="ba-cell2 aft"><span>Dopo</span><img src="img/p00-dopo.jpg" alt="Dopo" loading="lazy"></div></div></div></div></div>
 </section>
 
 <!-- SERVIZI timeline -->
@@ -572,10 +549,10 @@ img,video{max-width:100%}
     <div class="cards-head-l"><span class="eyebrow reveal">Il portfolio</span><h2 class="reveal">Le nostre strutture.</h2></div>
     <div class="cards-nav"><button id="cardsPrev" aria-label="Precedente">&#8592;</button><button id="cardsNext" aria-label="Successivo">&#8594;</button></div>
   </div>
-  <div class="cards-viewport"><div class="cards-track" id="cardsTrack"><div class="card"><div class="card-img"><img class="photo" src="img/3f712512e8.jpg" alt="The Architect Loft"><div class="card-logo"><img src="img/card-loft.jpg" alt="The Architect Loft"></div></div><div class="card-b"><h3>The Architect Loft</h3><div class="card-loc">Milano</div><div class="stat"><span class="l">Incasso annuo (avg.)</span><span class="v">€40–45k</span></div><div class="stat"><span class="l">Occupancy</span><span class="v">75–80%</span></div></div></div>
+  <div class="cards-viewport"><div class="cards-track" id="cardsTrack"><div class="card"><div class="card-img"><img class="photo" src="img/photo-loft.jpg" alt="The Architect Loft"><div class="card-logo"><img src="img/card-loft.jpg" alt="The Architect Loft"></div></div><div class="card-b"><h3>The Architect Loft</h3><div class="card-loc">Milano</div><div class="stat"><span class="l">Incasso annuo (avg.)</span><span class="v">€40–45k</span></div><div class="stat"><span class="l">Occupancy</span><span class="v">75–80%</span></div></div></div>
 <div class="card"><div class="card-img"><img class="photo" src="img/c6c4cd30b5.jpg" alt="Bassa Marea"><div class="card-logo"><img src="img/card-bassamarea.jpg" alt="Bassa Marea"></div></div><div class="card-b"><h3>Bassa Marea</h3><div class="card-loc">Livorno</div><div class="stat"><span class="l">Incasso annuo (avg.)</span><span class="v">€18–23k</span></div><div class="stat"><span class="l">Occupancy</span><span class="v">80–85%</span></div></div></div>
-<div class="card"><div class="card-img"><img class="photo" src="img/c8ede5795c.jpg" alt="The Architect Suite"><div class="card-logo"><img src="img/card-suite.jpg" alt="The Architect Suite"></div></div><div class="card-b"><h3>The Architect Suite</h3><div class="card-loc">Livorno</div><div class="stat"><span class="l">Incasso annuo (avg.)</span><span class="v">€25–30k</span></div><div class="stat"><span class="l">Occupancy</span><span class="v">90–95%</span></div></div></div>
-<div class="card"><div class="card-img"><img class="photo" src="img/f28ef19342.jpg" alt="Casa Arte"><div class="card-logo"><img src="img/card-arte.jpg" alt="Casa Arte"></div></div><div class="card-b"><h3>Casa Arte</h3><div class="card-loc">Livorno</div><div class="stat"><span class="l">Incasso annuo (avg.)</span><span class="v">€20–25k</span></div><div class="stat"><span class="l">Occupancy</span><span class="v">80–85%</span></div></div></div>
+<div class="card"><div class="card-img"><img class="photo" src="img/photo-suite.jpg" alt="The Architect Suite"><div class="card-logo"><img src="img/card-suite.jpg" alt="The Architect Suite"></div></div><div class="card-b"><h3>The Architect Suite</h3><div class="card-loc">Livorno</div><div class="stat"><span class="l">Incasso annuo (avg.)</span><span class="v">€25–30k</span></div><div class="stat"><span class="l">Occupancy</span><span class="v">90–95%</span></div></div></div>
+<div class="card"><div class="card-img"><img class="photo" src="img/photo-arte.jpg" alt="Casa Arte"><div class="card-logo"><img src="img/card-arte.jpg" alt="Casa Arte"></div></div><div class="card-b"><h3>Casa Arte</h3><div class="card-loc">Livorno</div><div class="stat"><span class="l">Incasso annuo (avg.)</span><span class="v">€20–25k</span></div><div class="stat"><span class="l">Occupancy</span><span class="v">80–85%</span></div></div></div>
 <div class="card"><div class="card-img"><img class="photo" src="img/8c62d1efb0.jpg" alt="Casa Atelier"><div class="card-logo"><img src="img/card-atelier.jpg" alt="Casa Atelier"></div></div><div class="card-b"><h3>Casa Atelier</h3><div class="card-loc">Livorno</div><div class="stat"><span class="l">Incasso annuo (avg.)</span><span class="v">€22–27k</span></div><div class="stat"><span class="l">Occupancy</span><span class="v">85–90%</span></div></div></div></div></div>
 </section>
 
@@ -663,7 +640,7 @@ document.querySelectorAll('video').forEach(v=>{v.muted=true;
   </div>
   <button class="lb-arrow lb-next" id="lbNext" aria-label="Successivo">&#8594;</button>
 </div>
-<script>window.BA=[{"b": "img/ba00-prima-6fb76b67c2.jpg", "a": "img/ba00-dopo-c3f02a9d49.jpg"}, {"b": "img/ba01-prima-9390e25da9.jpg", "a": "img/ba01-dopo-8ea10c67ac.jpg"}, {"b": "img/ba02-prima-ac87a9c45d.jpg", "a": "img/ba02-dopo-9ae2a80d9e.jpg"}, {"b": "img/ba03-prima-0f340db344.jpg", "a": "img/ba03-dopo-ebc0786233.jpg"}, {"b": "img/ba04-prima-9619707226.jpg", "a": "img/ba04-dopo-25ffd0a067.jpg"}, {"b": "img/ba05-prima-b228fe0273.jpg", "a": "img/ba05-dopo-273b998b0e.jpg"}, {"b": "img/ba06-prima-4131afd156.jpg", "a": "img/ba06-dopo-c7bf81c833.jpg"}, {"b": "img/ba07-prima-3264d029f7.jpg", "a": "img/ba07-dopo-bdcc57b1f7.jpg"}, {"b": "img/ba08-prima-5a372d6ca2.jpg", "a": "img/ba08-dopo-219baf4f5d.jpg"}, {"b": "img/ba09-prima-812889d27a.jpg", "a": "img/ba09-dopo-77775afb5e.jpg"}, {"b": "img/ba10-prima-e4382928b8.jpg", "a": "img/ba10-dopo-3da90d4879.jpg"}, {"b": "img/ba11-prima-c8d2327249.jpg", "a": "img/ba11-dopo-53b49ea128.jpg"}, {"b": "img/ba12-prima-619c1991dc.jpg", "a": "img/ba12-dopo-345fa5f1cb.jpg"}, {"b": "img/ba13-prima-af591cdcd1.jpg", "a": "img/ba13-dopo-fb5968381f.jpg"}];
+<script>window.BA=[{"b": "img/p00-prima.jpg", "a": "img/ba01-dopo-8ea10c67ac.jpg"}, {"b": "img/p01-prima.jpg", "a": "img/ba11-dopo-53b49ea128.jpg"}, {"b": "img/ba02-prima-ac87a9c45d.jpg", "a": "img/ba02-dopo-9ae2a80d9e.jpg"}, {"b": "img/ba03-prima-0f340db344.jpg", "a": "img/ba03-dopo-ebc0786233.jpg"}, {"b": "img/ba04-prima-9619707226.jpg", "a": "img/ba04-dopo-25ffd0a067.jpg"}, {"b": "img/ba05-prima-b228fe0273.jpg", "a": "img/ba05-dopo-273b998b0e.jpg"}, {"b": "img/ba06-prima-4131afd156.jpg", "a": "img/ba06-dopo-c7bf81c833.jpg"}, {"b": "img/ba07-prima-3264d029f7.jpg", "a": "img/ba07-dopo-bdcc57b1f7.jpg"}, {"b": "img/ba08-prima-5a372d6ca2.jpg", "a": "img/ba08-dopo-219baf4f5d.jpg"}, {"b": "img/ba09-prima-812889d27a.jpg", "a": "img/ba09-dopo-77775afb5e.jpg"}, {"b": "img/ba10-prima-e4382928b8.jpg", "a": "img/ba10-dopo-3da90d4879.jpg"}, {"b": "img/p11-prima.jpg", "a": "img/ba13-dopo-fb5968381f.jpg"}, {"b": "img/ba12-prima-619c1991dc.jpg", "a": "img/ba12-dopo-345fa5f1cb.jpg"}, {"b": "img/p13-prima.jpg", "a": "img/p00-dopo.jpg"}];
 (function(){var lb=document.getElementById('lb');if(!lb)return;
  var bI=document.getElementById('lbBefore'),aI=document.getElementById('lbAfter'),cur=0,BA=window.BA||[];
  function show(i){if(!BA.length)return;cur=(i%BA.length+BA.length)%BA.length;bI.src=BA[cur].b;aI.src=BA[cur].a;}
