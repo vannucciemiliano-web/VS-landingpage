@@ -319,8 +319,8 @@ img,video{max-width:100%}
   .flowh{grid-template-columns:1fr 1fr;gap:16px}
   .circle{aspect-ratio:1;border-radius:50%;padding:12%;max-width:225px;margin-inline:auto}
   .circle::after{display:none}
-  .circle b{font-size:calc(var(--h3) / 1.5 + 3px);line-height:1.05;margin-bottom:10px}
-  .circle span{font-size:calc(var(--lead) / 1.5 + 3px);line-height:1.4}
+  .circle b{font-size:calc(var(--h3) / 1.5 + 1px);line-height:1.05;margin-bottom:10px}
+  .circle span{font-size:calc(var(--lead) / 1.5 + 1px);line-height:1.4}
   /* entrata cerchi leggermente più lenta */
   .flowh.in .circle{transition:opacity 1s ease,transform 1s ease}
   .flowh.in .circle:nth-child(1){transition-delay:.15s}
@@ -391,7 +391,7 @@ img,video{max-width:100%}
   #risultati .kpi:nth-child(n+3){border-top:1px solid var(--line-d)}
 
   /* numeri nelle schede di progetto: -1px */
-  #strutture .stat .v{font-size:calc(1.45rem - 1px)}
+  #strutture .stat .v{font-size:calc(1.45rem - 1px);white-space:nowrap}
   /* "Le nostre strutture" su una riga */
   #strutture h2{white-space:nowrap;font-size:clamp(1.6rem,9vw,2.4rem)}
 
