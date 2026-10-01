@@ -75,7 +75,7 @@ header.at-top{background:transparent;backdrop-filter:none;-webkit-backdrop-filte
 .topvideo video{width:100%;display:block;background:var(--ink)}
 @media(max-width:760px){.topvideo video{aspect-ratio:9/16;max-height:100svh;object-fit:cover}}
 .hero{display:grid;grid-template-columns:1.02fr .98fr;min-height:clamp(600px,90vh,880px);padding:0;border-block:1px solid rgba(255,255,255,.4)}
-.hero-txt{display:flex;flex-direction:column;justify-content:center;padding:clamp(44px,6vw,92px) var(--pad);gap:40px}
+.hero-txt{display:flex;flex-direction:column;justify-content:center;padding:clamp(44px,6vw,92px) var(--pad);padding-left:max(var(--pad),calc((100vw - var(--maxw))/2 + var(--pad)));gap:40px}
 .hero-head{display:flex;flex-direction:column;gap:20px}
 .hero-txt h1{max-width:13ch}
 .hero-sub{color:var(--muted);max-width:44ch;font-size:var(--lead);line-height:1.5}
@@ -110,7 +110,7 @@ header.at-top{background:transparent;backdrop-filter:none;-webkit-backdrop-filte
 @media(max-width:860px){.split{grid-template-columns:1fr}.split .media{min-height:52vh}}
 .flowh-sec .eyebrow{display:block;margin-bottom:clamp(36px,4vw,56px);text-align:center}
 .flowh{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,1.6vw,26px);align-items:start}
-.circle{aspect-ratio:1;border:1px solid var(--line);border-radius:50%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:12%;position:relative}
+.circle{aspect-ratio:1;border:1px solid rgba(255,255,255,.5);border-radius:50%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:12%;position:relative}
 .circle b{font-family:var(--serif);font-weight:400;font-size:var(--h3);line-height:1;margin-bottom:12px}
 .circle span{color:var(--muted);font-size:.9375rem;line-height:1.4}
 .circle:not(:last-child)::after{content:"→";position:absolute;right:-15px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:1rem;z-index:3;opacity:0;transition:opacity .5s}
@@ -128,7 +128,7 @@ header.at-top{background:transparent;backdrop-filter:none;-webkit-backdrop-filte
 .tl-lead{max-width:34ch;margin-bottom:clamp(26px,3vw,44px)}
 .tl-lead .eyebrow{display:block;margin-bottom:16px}
 .phases{display:grid;grid-template-columns:repeat(7,1fr);gap:clamp(12px,2vw,28px);margin-bottom:clamp(20px,3vw,38px)}
-.phase{border:1px solid var(--line);border-radius:4px;padding:clamp(16px,2vw,26px);font-family:var(--serif);font-size:clamp(1.1rem,1.7vw,1.5rem);display:flex;align-items:center;justify-content:center;text-align:center}
+.phase{border:1px solid rgba(255,255,255,.5);border-radius:4px;padding:clamp(16px,2vw,26px);font-family:var(--serif);font-size:clamp(1.1rem,1.7vw,1.5rem);display:flex;align-items:center;justify-content:center;text-align:center}
 .phase.p1{grid-column:1/5}.phase.p2{grid-column:5/8}
 .tl{position:relative}
 .tl-line{position:absolute;left:0;right:0;top:calc(clamp(1.5rem,3vw,2.4rem) + 22px);height:1px;background:rgba(255,255,255,.12)}
@@ -276,6 +276,8 @@ section[id]{scroll-margin-top:var(--navh,130px)}
 img,video{max-width:100%}
 @media(max-width:760px){.tl-head-r{justify-self:start;text-align:left}.tl-head-r p{margin-left:0}.ba-head2 .right{align-items:flex-start}.ba-head2 .right p{text-align:left}}
 @media(max-width:480px){.nav .logo{width:140px}.nav{padding:20px var(--pad)}.hero-txt{padding-top:32px;padding-bottom:38px}.foot-payoff,.dtr-eq{font-size:1.5rem}}
+.split .media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.split-rev .body{padding-left:max(var(--pad),calc((100vw - var(--maxw))/2 + var(--pad)))}@media(max-width:860px){.split-rev{display:flex;flex-direction:column}.split-rev .media{order:-1}}
+.card-link{text-decoration:none;color:inherit;cursor:pointer}
 </style>
 </head>
 <body>
@@ -302,7 +304,7 @@ img,video{max-width:100%}
 <section class="hero">
   <div class="hero-txt">
     <div class="hero-head reveal"><span class="eyebrow">Property management integrato</span><h1>Trasformiamo il tuo immobile in una destinazione memorabile.</h1></div>
-    <p class="hero-sub reveal">Oltre il property management. Valorizziamo il tuo immobile per aumentarne il rendimento e il valore percepito attraverso branding, architettura e interior design.</p>
+    <p class="hero-sub reveal">Oltre il property management. Definiamo il posizionamento dell’immobile, ne progettiamo l’identità e gli spazi attraverso branding, architettura e interior design, infine ne curiamo il lancio e la gestione. Dall’idea al soggiorno, ogni scelta fa parte dello stesso progetto.</p>
     <div class="hero-cta reveal"><a href="#contatto" class="btn">Richiedi una valutazione gratuita</a></div>
   </div>
   <div class="hero-media"><img src="img/loft-ec9241a773.jpg" alt="Interno di un loft gestito da Vanity Stays"></div>
@@ -340,6 +342,16 @@ img,video{max-width:100%}
     <div class="circle"><b>Reputation</b><span>Recensioni, conversione e posizionamento nel tempo</span></div>
   </div>
   <p class="dtr-eq reveal">Il risultato: <span class="mut">più conversione, prenotazioni di qualità e ricavi ottimizzati.</span></p>
+</section>
+
+<!-- IDENTITA E POSIZIONAMENTO -->
+<section class="split split-rev" style="padding:0">
+  <div class="body">
+    <div class="split-head"><span class="eyebrow">Identità e posizionamento</span><h2>Il carattere di un luogo, in ogni dettaglio.</h2></div>
+    <p>Studiamo l'immobile, il contesto e le persone a cui si rivolge. Da qui prendono forma il concept, il nome, l'identità visiva e il linguaggio del progetto. Gli stessi elementi guidano le immagini, gli annunci e i dettagli dell'esperienza ospite, dando coerenza a ogni punto di contatto.</p>
+    <div><a href="#strutture" class="btn">Guarda le strutture</a></div>
+  </div>
+  <div class="media"><video muted loop playsinline autoplay preload="metadata" poster="img/strutture_poster.jpg"><source src="video/strutture.webm" type="video/webm"><source src="video/strutture.mp4" type="video/mp4"></video></div>
 </section>
 
 <!-- SERVIZI timeline -->
@@ -428,11 +440,11 @@ img,video{max-width:100%}
     <div class="cards-head-l"><span class="eyebrow reveal">Il portfolio</span><h2 class="reveal">Le nostre strutture.</h2></div>
     <div class="cards-nav"><button id="cardsPrev" aria-label="Precedente">&#8592;</button><button id="cardsNext" aria-label="Successivo">&#8594;</button></div>
   </div>
-  <div class="cards-viewport"><div class="cards-track" id="cardsTrack"><div class="card"><div class="card-img"><img class="photo" src="img/3f712512e8.jpg" alt="The Architect Loft"><div class="card-logo"><img src="img/10f197f8a7.jpg" alt="The Architect Loft"></div></div><div class="card-b"><h3>The Architect Loft</h3><div class="card-loc">Milano</div><div class="stat"><span class="l">Incasso annuo (avg.)</span><span class="v">€40–45k</span></div><div class="stat"><span class="l">Occupancy</span><span class="v">75–80%</span></div><div class="stat"><span class="l">ADR</span><span class="v">€200</span></div></div></div>
-<div class="card"><div class="card-img"><img class="photo" src="img/f28ef19342.jpg" alt="Casa Arte"><div class="card-logo"><img src="img/86ab3d699c.jpg" alt="Casa Arte"></div></div><div class="card-b"><h3>Casa Arte</h3><div class="card-loc">Livorno</div><div class="stat"><span class="l">Incasso annuo (avg.)</span><span class="v">€20–25k</span></div><div class="stat"><span class="l">Occupancy</span><span class="v">80–85%</span></div><div class="stat"><span class="l">ADR</span><span class="v">€120</span></div></div></div>
-<div class="card"><div class="card-img"><img class="photo" src="img/c8ede5795c.jpg" alt="The Architect Suite"><div class="card-logo"><img src="img/e81325ce56.jpg" alt="The Architect Suite"></div></div><div class="card-b"><h3>The Architect Suite</h3><div class="card-loc">Livorno</div><div class="stat"><span class="l">Incasso annuo (avg.)</span><span class="v">€25–30k</span></div><div class="stat"><span class="l">Occupancy</span><span class="v">90–95%</span></div><div class="stat"><span class="l">ADR</span><span class="v">€140</span></div></div></div>
-<div class="card"><div class="card-img"><img class="photo" src="img/c6c4cd30b5.jpg" alt="Bassa Marea"><div class="card-logo"><img src="img/9b620440e3.jpg" alt="Bassa Marea"></div></div><div class="card-b"><h3>Bassa Marea</h3><div class="card-loc">Livorno</div><div class="stat"><span class="l">Incasso annuo (avg.)</span><span class="v">€18–23k</span></div><div class="stat"><span class="l">Occupancy</span><span class="v">80–85%</span></div><div class="stat"><span class="l">ADR</span><span class="v">€135</span></div></div></div>
-<div class="card"><div class="card-img"><img class="photo" src="img/8c62d1efb0.jpg" alt="Casa Atelier"><div class="card-logo"><img src="img/84fdd0289d.jpg" alt="Casa Atelier"></div></div><div class="card-b"><h3>Casa Atelier</h3><div class="card-loc">Livorno</div><div class="stat"><span class="l">Incasso annuo (avg.)</span><span class="v">€22–27k</span></div><div class="stat"><span class="l">Occupancy</span><span class="v">85–90%</span></div><div class="stat"><span class="l">ADR</span><span class="v">€130</span></div></div></div></div></div>
+  <div class="cards-viewport"><div class="cards-track" id="cardsTrack"><div class="card"><div class="card-img"><img class="photo" src="img/3f712512e8.jpg" alt="The Architect Loft"><div class="card-logo"><img src="img/card-loft.jpg" alt="The Architect Loft"></div></div><div class="card-b"><h3>The Architect Loft</h3><div class="card-loc">Milano</div><div class="stat"><span class="l">Incasso annuo (avg.)</span><span class="v">€40–45k</span></div><div class="stat"><span class="l">Occupancy</span><span class="v">75–80%</span></div></div></div>
+<div class="card"><div class="card-img"><img class="photo" src="img/c6c4cd30b5.jpg" alt="Bassa Marea"><div class="card-logo"><img src="img/card-bassamarea.jpg" alt="Bassa Marea"></div></div><div class="card-b"><h3>Bassa Marea</h3><div class="card-loc">Livorno</div><div class="stat"><span class="l">Incasso annuo (avg.)</span><span class="v">€18–23k</span></div><div class="stat"><span class="l">Occupancy</span><span class="v">80–85%</span></div></div></div>
+<div class="card"><div class="card-img"><img class="photo" src="img/c8ede5795c.jpg" alt="The Architect Suite"><div class="card-logo"><img src="img/card-suite.jpg" alt="The Architect Suite"></div></div><div class="card-b"><h3>The Architect Suite</h3><div class="card-loc">Livorno</div><div class="stat"><span class="l">Incasso annuo (avg.)</span><span class="v">€25–30k</span></div><div class="stat"><span class="l">Occupancy</span><span class="v">90–95%</span></div></div></div>
+<div class="card"><div class="card-img"><img class="photo" src="img/f28ef19342.jpg" alt="Casa Arte"><div class="card-logo"><img src="img/card-arte.jpg" alt="Casa Arte"></div></div><div class="card-b"><h3>Casa Arte</h3><div class="card-loc">Livorno</div><div class="stat"><span class="l">Incasso annuo (avg.)</span><span class="v">€20–25k</span></div><div class="stat"><span class="l">Occupancy</span><span class="v">80–85%</span></div></div></div>
+<div class="card"><div class="card-img"><img class="photo" src="img/8c62d1efb0.jpg" alt="Casa Atelier"><div class="card-logo"><img src="img/card-atelier.jpg" alt="Casa Atelier"></div></div><div class="card-b"><h3>Casa Atelier</h3><div class="card-loc">Livorno</div><div class="stat"><span class="l">Incasso annuo (avg.)</span><span class="v">€22–27k</span></div><div class="stat"><span class="l">Occupancy</span><span class="v">85–90%</span></div></div></div></div></div>
 </section>
 
 <!-- CONTACT -->
@@ -498,7 +510,7 @@ document.querySelectorAll('.flowh, .tlwrap, #kpis').forEach(el=>ioLoop.observe(e
   requestAnimationFrame(tick);})();
 
 // carosello cards con loop + tap->logo
-(function(){const tr=document.getElementById('cardsTrack');if(!tr)return;
+(function(){const tr=document.getElementById('cardsTrack');if(!tr)return;let down=false,sx=0,sl=0,moved=false;tr.style.cursor='grab';tr.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')return;down=true;moved=false;sx=e.clientX;sl=tr.scrollLeft;tr.style.cursor='grabbing';try{tr.setPointerCapture(e.pointerId)}catch(_){} });tr.addEventListener('pointermove',e=>{if(!down)return;const dx=e.clientX-sx;if(Math.abs(dx)>4)moved=true;tr.scrollLeft=sl-dx;});const _end=()=>{down=false;tr.style.cursor='grab';};tr.addEventListener('pointerup',_end);tr.addEventListener('pointercancel',_end);tr.addEventListener('pointerleave',_end);tr.addEventListener('click',e=>{if(moved){e.preventDefault();e.stopPropagation();}},true);tr.addEventListener('dragstart',e=>e.preventDefault());
   const step=()=>{const c=tr.querySelector('.card');const g=parseInt(getComputedStyle(tr).columnGap)||20;return c?c.offsetWidth+g:320;};
   const nx=document.getElementById('cardsNext'),pv=document.getElementById('cardsPrev');
   if(nx)nx.onclick=()=>{if(tr.scrollLeft>=tr.scrollWidth-tr.clientWidth-4)tr.scrollTo({left:0,behavior:'smooth'});else tr.scrollBy({left:step(),behavior:'smooth'});};
