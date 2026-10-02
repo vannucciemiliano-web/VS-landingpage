@@ -198,7 +198,7 @@ header.at-top{background:transparent;backdrop-filter:none;-webkit-backdrop-filte
 .card-img .photo{width:100%;height:100%;object-fit:cover}
 .card-logo{position:absolute;inset:0;opacity:0;transition:opacity .45s ease}
 .card-logo img{width:100%;height:100%;object-fit:cover}
-.card:hover .card-logo,.card.show-logo .card-logo{opacity:1}
+.card.show-logo .card-logo{opacity:1}@media(hover:hover){.card:hover .card-logo{opacity:1}}
 .card-b{padding:26px}
 .card-b h3{color:var(--paper-ink)}
 .card-loc{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-d);margin:8px 0 20px}
@@ -398,6 +398,9 @@ img,video{max-width:100%}
   /* prima/dopo: coppie x1.5 (scorrimento automatico invariato) */
   .ba-pair2{flex:0 0 135%}
 }
+
+video{pointer-events:none}
+video::-webkit-media-controls,video::-webkit-media-controls-panel,video::-webkit-media-controls-play-button,video::-webkit-media-controls-start-playback-button,video::-webkit-media-controls-overlay-play-button,video::-webkit-media-controls-enclosure{display:none!important;-webkit-appearance:none;opacity:0}
 </style>
 </head>
 <body>
@@ -405,12 +408,12 @@ img,video{max-width:100%}
 <header>
   <div class="nav">
     <img class="logo" src="img/logo-0f92e79d9f.png" alt="Vanity Stays">
-    <nav class="nav-links"><a href="#modello">Modello</a><a href="#metodo-operativo">Metodo</a><a href="#risultati">Risultati</a><a href="#strutture">Strutture</a><a href="#contatto">Contatti</a></nav>
+    <nav class="nav-links"><a href="#modello">Modello</a><a href="#metodo-operativo">Metodo</a><a href="#risultati">Risultati</a><a href="#strutture">Appartamenti</a><a href="#contatto">Contatti</a></nav>
     <a href="#contatto" class="btn nav-cta">Richiedi valutazione</a>
     <button class="hamb" id="hamb" aria-label="Apri menu" aria-expanded="false"><span></span><span></span></button>
   </div>
   <div class="mobile-menu" id="mmenu">
-    <a href="#modello">Modello</a><a href="#metodo-operativo">Metodo</a><a href="#risultati">Risultati</a><a href="#strutture">Strutture</a><a href="#contatto">Contatti</a>
+    <a href="#modello">Modello</a><a href="#metodo-operativo">Metodo</a><a href="#risultati">Risultati</a><a href="#strutture">Appartamenti</a><a href="#contatto">Contatti</a>
     <a href="#contatto" class="btn">Richiedi valutazione</a>
   </div>
 </header>
@@ -452,7 +455,7 @@ img,video{max-width:100%}
   <div class="body">
     <div class="split-head"><span class="eyebrow">Il modello Design-to-Rent</span><h2>Progettiamo asset ricettivi performanti.</h2></div>
     <p>Un immobile short-rent performante non dipende solo dalla posizione. Servono identità, qualità percepita ed esperienza ospite. Progettiamo l'immobile come prodotto ricettivo di alto livello.</p>
-    <div><a href="#strutture" class="btn">Guarda le strutture</a></div>
+    <div><a href="#strutture" class="btn">Guarda gli appartamenti</a></div>
   </div>
 </section>
 
@@ -473,13 +476,13 @@ img,video{max-width:100%}
   <div class="body">
     <div class="split-head"><span class="eyebrow">Identità e posizionamento</span><h2>Il carattere di un luogo, in ogni dettaglio.</h2></div>
     <p>Studiamo l'immobile, il contesto e le persone a cui si rivolge. Da qui prendono forma il concept, il nome, l'identità visiva e il linguaggio del progetto. Gli stessi elementi guidano le immagini, gli annunci e i dettagli dell'esperienza ospite, dando coerenza a ogni punto di contatto.</p>
-    <div><a href="#strutture" class="btn">Guarda le strutture</a></div>
+    <div><a href="#strutture" class="btn">Guarda gli appartamenti</a></div>
   </div>
-  <div class="media"><video muted loop playsinline autoplay preload="metadata" poster="img/strutture_poster.jpg"><source src="video/strutture.webm" type="video/webm"><source src="video/strutture.mp4" type="video/mp4"></video></div>
+  <div class="media"><video muted loop playsinline autoplay preload="metadata" poster="img/strutture_poster.jpg"><source src="video/strutture.mp4" type="video/mp4"><source src="video/strutture.webm" type="video/webm"></video></div>
 </section>
 
 <!-- VIDEO IDENTITA (solo mobile) -->
-<section class="identita-video-m"><div class="ivm-media"><video muted loop playsinline autoplay preload="metadata" poster="img/strutture_poster.jpg"><source src="video/strutture.webm" type="video/webm"><source src="video/strutture.mp4" type="video/mp4"></video></div></section>
+<section class="identita-video-m"><div class="ivm-media"><video muted loop playsinline autoplay preload="metadata" poster="img/strutture_poster.jpg"><source src="video/strutture.mp4" type="video/mp4"><source src="video/strutture.webm" type="video/webm"></video></div></section>
 
 <!-- GALLERY prima/dopo -->
 <section class="gallery-sec">
@@ -564,7 +567,7 @@ img,video{max-width:100%}
 <!-- CARDS -->
 <section class="results results2" id="strutture">
   <div class="wrap cards-head">
-    <div class="cards-head-l"><span class="eyebrow reveal">Il portfolio</span><h2 class="reveal">Le nostre strutture.</h2></div>
+    <div class="cards-head-l"><span class="eyebrow reveal">Il portfolio</span><h2 class="reveal">I nostri appartamenti.</h2></div>
     <div class="cards-nav"><button id="cardsPrev" aria-label="Precedente">&#8592;</button><button id="cardsNext" aria-label="Successivo">&#8594;</button></div>
   </div>
   <div class="cards-viewport"><div class="cards-track" id="cardsTrack"><a class="card card-link" href="loft.html" aria-label="The Architect Loft — vedi il progetto"><div class="card-img"><img class="photo" src="img/photo-loft.jpg" alt="The Architect Loft"><div class="card-logo"><img src="img/card-loft.jpg" alt="The Architect Loft"></div></div><div class="card-b"><h3>The Architect Loft</h3><div class="card-loc">Milano</div><div class="stat"><span class="l">Incasso annuo (avg.)</span><span class="v">€40–45k</span></div><div class="stat"><span class="l">Occupancy</span><span class="v">75–80%</span></div></div></a>
@@ -654,9 +657,13 @@ document.querySelectorAll('.flowh, .tlwrap, #kpis').forEach(el=>ioLoop.observe(e
   tr.querySelectorAll('.card:not(.card-link)').forEach(c=>{if(c.querySelector('.card-logo'))c.querySelector('.card-img').addEventListener('click',()=>c.classList.toggle('show-logo'));});})();
 
 // video: muto, x1.2, autoplay con fallback
-document.querySelectorAll('video').forEach(v=>{v.muted=true;
-  const setR=()=>{try{v.playbackRate=1.2;}catch(e){}};v.addEventListener('loadedmetadata',setR);setR();
-  const p=v.play&&v.play();if(p&&p.catch)p.catch(()=>v.setAttribute('controls',''));});
+(function(){const vs=[...document.querySelectorAll('video')];
+  const play=v=>{if(!v.paused)return;const p=v.play&&v.play();if(p&&p.catch)p.catch(()=>{});};
+  vs.forEach(v=>{v.muted=true;v.defaultMuted=true;v.setAttribute('muted','');v.playsInline=true;v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');v.loop=true;v.autoplay=true;v.controls=false;v.removeAttribute('controls');
+    const setR=()=>{try{v.playbackRate=1.2;}catch(e){}};v.addEventListener('loadedmetadata',()=>{setR();play(v);});v.addEventListener('canplay',()=>play(v));setR();play(v);});
+  const all=()=>vs.forEach(play);
+  ['touchstart','pointerdown','scroll','keydown'].forEach(ev=>window.addEventListener(ev,all,{passive:true}));
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)all();});window.addEventListener('pageshow',all);})();
 </script>
 <div class="lightbox" id="lb" aria-hidden="true">
   <button class="lb-close" id="lbClose" aria-label="Chiudi">&times;</button>
