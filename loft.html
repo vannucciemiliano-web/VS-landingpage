@@ -440,13 +440,12 @@ video::-webkit-media-controls,video::-webkit-media-controls-panel,video::-webkit
 /* === hover logo solo su dispositivi con mouse === */
 /* === MOBILE: spazio sotto "Torna al portfolio" === */
 @media(max-width:860px){.hero .back{position:static;display:inline-block;align-self:flex-start}}
-/* === MOBILE: slider foto fluido (niente scala per-frame) === */
+/* === MOBILE: slider foto fluido (stessa animazione desktop, senza transizioni CSS che la rallentano) === */
 @media(max-width:820px){
   .ftrack{scroll-snap-type:x mandatory;padding-inline:9vw;gap:14px;overscroll-behavior-x:contain}
-  .fslide{transform:none!important;opacity:.45;transition:opacity .35s ease;will-change:auto;scroll-snap-stop:always}
-  .fslide.is-active{opacity:1}
-  .fslide{height:auto;width:82vw;aspect-ratio:4/5}
-  .fslide img{width:100%;height:100%;object-fit:cover}
+  /* altezza fissa, larghezza naturale: le foto orizzontali restano intere (nessun ritaglio) */
+  .fslide{height:54vw;width:auto;aspect-ratio:auto;transition:none!important;will-change:transform,opacity;backface-visibility:hidden;scroll-snap-stop:always}
+  .fslide img{height:100%;width:auto;object-fit:contain}
 }
 /* === prima/dopo mobile stile Instagram === */
 .ivm{display:none}
@@ -666,7 +665,7 @@ video::-webkit-media-controls,video::-webkit-media-controls-panel,video::-webkit
   figs.forEach(function(f,i){
    var r=f.getBoundingClientRect();var c=r.left+r.width/2;var d=Math.abs(c-vpc);
    var t=Math.min(d/(tr.clientWidth*0.55),1);
-   if(!MOB.matches){f.style.transform='scale('+(1-0.2*t)+')';f.style.opacity=(1-0.6*t);}else{f.style.transform='';f.style.opacity='';}
+   f.style.transform=(MOB.matches?'translateZ(0) ':'')+'scale('+(1-0.2*t)+')';f.style.opacity=(1-0.6*t);
    f.classList.toggle('is-active',d<r.width/2);
    if(d<bd){bd=d;best=i;}
   });
