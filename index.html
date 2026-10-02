@@ -165,7 +165,7 @@ header.at-top{background:transparent;backdrop-filter:none;-webkit-backdrop-filte
 .ba-viewport{overflow:hidden}
 .ba-track2{display:flex;gap:clamp(16px,2vw,28px);overflow-x:auto;scrollbar-width:none}
 .ba-track2::-webkit-scrollbar{display:none}
-.ba-pair2{flex:0 0 calc(50% - 14px);display:grid;grid-template-columns:1fr 1fr;gap:6px;cursor:pointer}
+.ba-pair2{flex:0 0 calc(50% - 14px);display:grid;grid-template-columns:1fr 1fr;gap:6px;cursor:inherit;user-select:none;-webkit-user-select:none}
 .ba-cell2{position:relative;aspect-ratio:3/4;overflow:hidden;background:#111}
 .ba-cell2 img{width:100%;height:100%;object-fit:cover}
 .ba-cell2 span{position:absolute;top:12px;left:12px;font-size:.82rem;letter-spacing:0;text-transform:uppercase;background:#0A0A0A;color:#fff;padding:5px 12px;border-radius:99px;font-weight:500}
@@ -567,8 +567,8 @@ img,video{max-width:100%}
     <div class="cards-head-l"><span class="eyebrow reveal">Il portfolio</span><h2 class="reveal">Le nostre strutture.</h2></div>
     <div class="cards-nav"><button id="cardsPrev" aria-label="Precedente">&#8592;</button><button id="cardsNext" aria-label="Successivo">&#8594;</button></div>
   </div>
-  <div class="cards-viewport"><div class="cards-track" id="cardsTrack"><div class="card"><div class="card-img"><img class="photo" src="img/photo-loft.jpg" alt="The Architect Loft"><div class="card-logo"><img src="img/card-loft.jpg" alt="The Architect Loft"></div></div><div class="card-b"><h3>The Architect Loft</h3><div class="card-loc">Milano</div><div class="stat"><span class="l">Incasso annuo (avg.)</span><span class="v">€40–45k</span></div><div class="stat"><span class="l">Occupancy</span><span class="v">75–80%</span></div></div></div>
-<div class="card"><div class="card-img"><img class="photo" src="img/c6c4cd30b5.jpg" alt="Bassa Marea"><div class="card-logo"><img src="img/card-bassamarea.jpg" alt="Bassa Marea"></div></div><div class="card-b"><h3>Bassa Marea</h3><div class="card-loc">Livorno</div><div class="stat"><span class="l">Incasso annuo (avg.)</span><span class="v">€18–23k</span></div><div class="stat"><span class="l">Occupancy</span><span class="v">80–85%</span></div></div></div>
+  <div class="cards-viewport"><div class="cards-track" id="cardsTrack"><a class="card card-link" href="loft.html" aria-label="The Architect Loft — vedi il progetto"><div class="card-img"><img class="photo" src="img/photo-loft.jpg" alt="The Architect Loft"><div class="card-logo"><img src="img/card-loft.jpg" alt="The Architect Loft"></div></div><div class="card-b"><h3>The Architect Loft</h3><div class="card-loc">Milano</div><div class="stat"><span class="l">Incasso annuo (avg.)</span><span class="v">€40–45k</span></div><div class="stat"><span class="l">Occupancy</span><span class="v">75–80%</span></div></div></a>
+<a class="card card-link" href="bassamarea.html" aria-label="Bassa Marea — vedi il progetto"><div class="card-img"><img class="photo" src="img/c6c4cd30b5.jpg" alt="Bassa Marea"><div class="card-logo"><img src="img/card-bassamarea.jpg" alt="Bassa Marea"></div></div><div class="card-b"><h3>Bassa Marea</h3><div class="card-loc">Livorno</div><div class="stat"><span class="l">Incasso annuo (avg.)</span><span class="v">€18–23k</span></div><div class="stat"><span class="l">Occupancy</span><span class="v">80–85%</span></div></div></a>
 <div class="card"><div class="card-img"><img class="photo" src="img/photo-suite.jpg" alt="The Architect Suite"><div class="card-logo"><img src="img/card-suite.jpg" alt="The Architect Suite"></div></div><div class="card-b"><h3>The Architect Suite</h3><div class="card-loc">Livorno</div><div class="stat"><span class="l">Incasso annuo (avg.)</span><span class="v">€25–30k</span></div><div class="stat"><span class="l">Occupancy</span><span class="v">90–95%</span></div></div></div>
 <div class="card"><div class="card-img"><img class="photo" src="img/photo-arte.jpg" alt="Casa Arte"><div class="card-logo"><img src="img/card-arte.jpg" alt="Casa Arte"></div></div><div class="card-b"><h3>Casa Arte</h3><div class="card-loc">Livorno</div><div class="stat"><span class="l">Incasso annuo (avg.)</span><span class="v">€20–25k</span></div><div class="stat"><span class="l">Occupancy</span><span class="v">80–85%</span></div></div></div>
 <div class="card"><div class="card-img"><img class="photo" src="img/8c62d1efb0.jpg" alt="Casa Atelier"><div class="card-logo"><img src="img/card-atelier.jpg" alt="Casa Atelier"></div></div><div class="card-b"><h3>Casa Atelier</h3><div class="card-loc">Livorno</div><div class="stat"><span class="l">Incasso annuo (avg.)</span><span class="v">€22–27k</span></div><div class="stat"><span class="l">Occupancy</span><span class="v">85–90%</span></div></div></div></div></div>
@@ -634,15 +634,24 @@ document.querySelectorAll('.flowh, .tlwrap, #kpis').forEach(el=>ioLoop.observe(e
   if(bn)bn.onclick=()=>{pause();tr.scrollBy({left:step(),behavior:'smooth'});};
   const half=()=>tr.scrollWidth/2;
   function tick(){if(!paused){tr.scrollLeft+=0.55;if(tr.scrollLeft>=half())tr.scrollLeft-=half();}requestAnimationFrame(tick);}
+  // drag con il mouse (touch già nativo) + loop infinito durante il trascinamento
+  let down=false,sx=0,sl=0,moved=false;tr.style.cursor='grab';
+  tr.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')return;down=true;moved=false;paused=true;clearTimeout(uT);sx=e.clientX;sl=tr.scrollLeft;tr.style.cursor='grabbing';});
+  tr.addEventListener('pointermove',e=>{if(!down)return;const dx=e.clientX-sx;if(Math.abs(dx)>4){if(!moved){moved=true;try{tr.setPointerCapture(e.pointerId)}catch(_){}}}
+    if(!moved)return;let x=sl-dx;const h=half();if(x<0){x+=h;sl+=h;}else if(x>=h){x-=h;sl-=h;}tr.scrollLeft=x;});
+  const _end=()=>{if(!down)return;down=false;tr.style.cursor='grab';pause();};
+  tr.addEventListener('pointerup',_end);tr.addEventListener('pointercancel',_end);tr.addEventListener('pointerleave',_end);
+  tr.addEventListener('click',e=>{if(moved){e.preventDefault();e.stopPropagation();moved=false;}},true);
+  tr.addEventListener('dragstart',e=>e.preventDefault());
   requestAnimationFrame(tick);})();
 
 // carosello cards con loop + tap->logo
-(function(){const tr=document.getElementById('cardsTrack');if(!tr)return;let down=false,sx=0,sl=0,moved=false;tr.style.cursor='grab';tr.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')return;down=true;moved=false;sx=e.clientX;sl=tr.scrollLeft;tr.style.cursor='grabbing';try{tr.setPointerCapture(e.pointerId)}catch(_){} });tr.addEventListener('pointermove',e=>{if(!down)return;const dx=e.clientX-sx;if(Math.abs(dx)>4)moved=true;tr.scrollLeft=sl-dx;});const _end=()=>{down=false;tr.style.cursor='grab';};tr.addEventListener('pointerup',_end);tr.addEventListener('pointercancel',_end);tr.addEventListener('pointerleave',_end);tr.addEventListener('click',e=>{if(moved){e.preventDefault();e.stopPropagation();}},true);tr.addEventListener('dragstart',e=>e.preventDefault());
+(function(){const tr=document.getElementById('cardsTrack');if(!tr)return;let down=false,sx=0,sl=0,moved=false;tr.style.cursor='grab';tr.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')return;down=true;moved=false;sx=e.clientX;sl=tr.scrollLeft;tr.style.cursor='grabbing';});tr.addEventListener('pointermove',e=>{if(!down)return;const dx=e.clientX-sx;if(!moved&&Math.abs(dx)>4){moved=true;try{tr.setPointerCapture(e.pointerId)}catch(_){}}if(moved)tr.scrollLeft=sl-dx;});const _end=()=>{down=false;tr.style.cursor='grab';};tr.addEventListener('pointerup',_end);tr.addEventListener('pointercancel',_end);tr.addEventListener('pointerleave',_end);tr.addEventListener('click',e=>{if(moved){e.preventDefault();e.stopPropagation();moved=false;}},true);tr.addEventListener('dragstart',e=>e.preventDefault());
   const step=()=>{const c=tr.querySelector('.card');const g=parseInt(getComputedStyle(tr).columnGap)||20;return c?c.offsetWidth+g:320;};
   const nx=document.getElementById('cardsNext'),pv=document.getElementById('cardsPrev');
   if(nx)nx.onclick=()=>{if(tr.scrollLeft>=tr.scrollWidth-tr.clientWidth-4)tr.scrollTo({left:0,behavior:'smooth'});else tr.scrollBy({left:step(),behavior:'smooth'});};
   if(pv)pv.onclick=()=>{if(tr.scrollLeft<=4)tr.scrollTo({left:tr.scrollWidth,behavior:'smooth'});else tr.scrollBy({left:-step(),behavior:'smooth'});};
-  tr.querySelectorAll('.card').forEach(c=>{if(c.querySelector('.card-logo'))c.querySelector('.card-img').addEventListener('click',()=>c.classList.toggle('show-logo'));});})();
+  tr.querySelectorAll('.card:not(.card-link)').forEach(c=>{if(c.querySelector('.card-logo'))c.querySelector('.card-img').addEventListener('click',()=>c.classList.toggle('show-logo'));});})();
 
 // video: muto, x1.2, autoplay con fallback
 document.querySelectorAll('video').forEach(v=>{v.muted=true;
