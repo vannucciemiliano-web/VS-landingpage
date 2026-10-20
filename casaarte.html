@@ -623,7 +623,7 @@ video::-webkit-media-controls,video::-webkit-media-controls-panel,video::-webkit
 })();
 // INTERVENTO: carosello statico prima/dopo
 (function(){
- var BA=[{"b": "media/casaarte/a33370a1bc.jpg", "a": "media/casaarte/94ac2ae6c2.jpg"}, {"b": "media/casaarte/d9221cc9fc.jpg", "a": "media/casaarte/d30175b24f.jpg"}, {"b": "media/casaarte/8c11ff3542.jpg", "a": "media/casaarte/ef2b2df350.jpg"}, {"b": "media/casaarte/c6cadaba8d.jpg", "a": "media/casaarte/a7b7867c75.jpg"}];var cur=0;
+ var BA=[{"b": "media/casaarte/d9221cc9fc.jpg", "a": "media/casaarte/d30175b24f.jpg"}, {"b": "media/casaarte/a33370a1bc.jpg", "a": "media/casaarte/94ac2ae6c2.jpg"}, {"b": "media/casaarte/8c11ff3542.jpg", "a": "media/casaarte/ef2b2df350.jpg"}, {"b": "media/casaarte/c6cadaba8d.jpg", "a": "media/casaarte/a7b7867c75.jpg"}];var cur=0;
  var B=document.getElementById('ivB'),A=document.getElementById('ivA'),c=document.getElementById('ivCur');
  if(!B)return;
  function show(i){cur=(i%BA.length+BA.length)%BA.length;B.src=BA[cur].b;A.src=BA[cur].a;if(c)c.textContent=('0'+(cur+1)).slice(-2);}
