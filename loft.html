@@ -464,6 +464,15 @@ video::-webkit-media-controls,video::-webkit-media-controls-panel,video::-webkit
 .lbcap .n{font-family:var(--serif);font-weight:300;font-size:clamp(1.6rem,3vw,2.2rem);color:var(--muted);line-height:1}
 .lbcap .t{font-size:clamp(.92rem,1.3vw,1.05rem);line-height:1.4}
 </style>
+<style id="pres-css">
+.pres{background:var(--paper);color:var(--paper-ink);padding-block:clamp(60px,8vw,120px)}
+.pres .wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--pad)}
+.pres h2{color:var(--paper-ink);max-width:none}
+.pres .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,42px);margin-top:clamp(28px,3.5vw,48px);border-top:1px solid var(--line-d);border-bottom:1px solid var(--line-d);padding:clamp(30px,3.4vw,48px) 0}
+.pres .kpi .v{font-family:var(--serif);font-size:clamp(2.6rem,5vw,4.4rem);line-height:1;color:var(--paper-ink);font-weight:400}
+.pres .kpi .l{font-size:.82rem;letter-spacing:.05em;color:var(--muted-d);margin-top:14px}
+@media(max-width:600px){.pres{padding-block:clamp(46px,12vw,66px)}.pres .kpis{gap:0;padding:22px 0}.pres .kpi{padding:0 12px}.pres .kpi:first-child{padding-left:0}.pres .kpi:last-child{padding-right:0}.pres .kpi+.kpi{border-left:1px solid var(--line-d)}.pres .kpi .v{font-size:clamp(1.9rem,9vw,2.4rem)}.pres .kpi .l{font-size:.72rem;margin-top:10px}}
+</style>
 </head>
 <body>
 <header>
@@ -525,11 +534,11 @@ video::-webkit-media-controls,video::-webkit-media-controls-panel,video::-webkit
     <div class="iv-right">
       <ul class="int-list">
         <li><span class="n">01</span><span class="t">Ristrutturazione integrale del bagno</span></li>
-        <li><span class="n">02</span><span class="t">Ripavimentazione del piano terra e tinteggiatura di pareti e travi</span></li>
-        <li><span class="n">03</span><span class="t">Ripavimentazione della terrazza</span></li>
+        <li><span class="n">02</span><span class="t">Nuovo mood, color design e lighting design degli ambienti</span></li>
+        <li><span class="n">03</span><span class="t">Ristrutturazione e riconfigurazione della terrazza</span></li>
         <li><span class="n">04</span><span class="t">Riconfigurazione del layout dello spazio</span></li>
-        <li><span class="n">05</span><span class="t">Rifacimento integrale della cucina, nuove luci e prese</span></li>
-        <li><span class="n">06</span><span class="t">Sostituzione e rinnovo integrale degli arredi</span></li>
+        <li><span class="n">05</span><span class="t">Restyling della cucina e delle finiture</span></li>
+        <li><span class="n">06</span><span class="t">Rinnovo degli arredi funzionali e dei complementi</span></li>
       </ul>
     </div>
   </div>
@@ -575,6 +584,17 @@ video::-webkit-media-controls,video::-webkit-media-controls-panel,video::-webkit
 </section>
 
 <!-- CTA -->
+<section class="pres" id="risultati-progetto">
+  <div class="wrap">
+    <h2>Risultati reali del nostro metodo.</h2>
+    <div class="kpis" id="presKpis">
+      <div class="kpi"><div class="v" data-to="28" data-prefix="+" data-suffix="%">+0%</div><div class="l">prenotazioni</div></div>
+      <div class="kpi"><div class="v" data-to="65" data-prefix="+" data-suffix="%">+0%</div><div class="l">ADR (tariffa media)</div></div>
+      <div class="kpi"><div class="v" data-to="55" data-prefix="+" data-suffix="%">+0%</div><div class="l">occupancy</div></div>
+    </div>
+  </div>
+</section>
+
 <section class="proj-cta">
   <div class="wrap">
     <span class="eyebrow" style="display:block;margin-bottom:18px">Design-to-Rent</span>
@@ -714,5 +734,10 @@ video::-webkit-media-controls,video::-webkit-media-controls-panel,video::-webkit
  document.addEventListener('visibilitychange',function(){if(!document.hidden)all();});
  window.addEventListener('pageshow',all);
 })();</script>
+<script id="pres-js">(function(){var k=document.getElementById('presKpis');if(!k)return;var done=false;
+function run(){k.querySelectorAll('.v[data-to]').forEach(function(el){var to=+el.dataset.to,dur=1900,t0=performance.now();
+function fmt(n){return (el.dataset.prefix||'')+Math.round(n)+(el.dataset.suffix||'');}
+function step(t){var p=Math.min(1,(t-t0)/dur);p=1-Math.pow(1-p,3);el.textContent=fmt(to*p);if(p<1)requestAnimationFrame(step);else el.textContent=fmt(to);}requestAnimationFrame(step);});}
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)run();})},{threshold:.2});io.observe(k);}else run();})();</script>
 </body>
 </html>
