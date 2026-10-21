@@ -714,5 +714,6 @@ document.querySelectorAll('.flowh, .tlwrap, #kpis').forEach(el=>ioLoop.observe(e
 <script id="tap-logo">(function(){if(window.matchMedia('(hover:hover)').matches)return;var tr=document.getElementById('cardsTrack');if(!tr)return;
 tr.querySelectorAll('a.card-link').forEach(function(a){a.addEventListener('click',function(e){if(!a.querySelector('.card-logo'))return;if(a.dataset.go)return;e.preventDefault();a.dataset.go='1';a.classList.add('show-logo');setTimeout(function(){location.href=a.href;},650);});});
 window.addEventListener('pageshow',function(){tr.querySelectorAll('a.card-link').forEach(function(a){a.classList.remove('show-logo');delete a.dataset.go;});});})();</script>
+<script id="gestione-h">(function(){function f(){var g=document.getElementById('gestione');if(!g)return;g.style.minHeight='';if(!window.matchMedia('(min-width:821px)').matches)return;var a=document.getElementById('modello'),b=document.getElementById('identita');var hh=Math.max(a?a.getBoundingClientRect().height:0,b?b.getBoundingClientRect().height:0);if(hh)g.style.minHeight=Math.round(hh)+'px';}f();addEventListener('load',f);addEventListener('resize',f);if(document.fonts)document.fonts.ready.then(f);})();</script>
 </body>
 </html>
