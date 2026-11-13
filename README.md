@@ -21,3 +21,4 @@ Ogni push su `main` ripubblica il sito in automatico.
 
 ## Form contatti
 Web3Forms → info@vanitystays.it (access key nel form di `index.html`).
+
